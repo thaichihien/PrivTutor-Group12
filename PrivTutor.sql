@@ -44,6 +44,7 @@ CREATE TABLE Course
     rating NUMERIC(2,1),
     duration INT,
     release_date DATE,
+    logoCourseURL TEXT,
     -- foreign key --
     teacher_id VARCHAR(4) REFERENCES Teacher(teacher_id)
 );
@@ -61,6 +62,7 @@ CREATE TABLE Course_Student
 (
     course_id VARCHAR(4) REFERENCES Course(course_id),
     student_id VARCHAR(4) REFERENCES Student(student_id),
+    comment TEXT,
     PRIMARY KEY (course_id, student_id)
 );
 
@@ -74,13 +76,13 @@ INSERT INTO Teacher (teacher_id, username, acc_password, full_name, date_of_birt
 ('TT02','misterRen', 'Ren123', 'Nguyen Van Trong', '1994-04-04','ngairen94@gmail.com', 'LOL coaching', '0903259037'),
 ('TT03','Thoconbebong', 'Stella@1208', 'Tran Mai Thanh Thuy', '1989-04-04','mtthuy89@gmail.com', 'PHD. in Math', '0932958648');
 
-INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, teacher_id) VALUES 
-('PG22','Introduction to programming', '120000', '4.5', 48, '2022-12-20', 'TT01'),
-('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'TT01'),
-('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'TT02'),
-('LOL2','How to handle with laning phase', '50000', '4.9', 24, '2022-05-14', 'TT02'),
-('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 'TT03'),
-('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', 'TT03');
+INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, logoCourseURL, teacher_id) VALUES 
+('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', 'https://drive.google.com/uc?export=view&id=1Ln9yp1H5uFAttg3eex834mivGWJ0bP7G', 'TT01'),
+('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'https://drive.google.com/uc?export=view&id=1u6bbnnENbIc_MiZgqPKJNxyKqLJ8zAyk','TT01'),
+('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'https://drive.google.com/uc?export=view&id=1H-DYlYFcl5J7GFNkygd8JBV-bKCRP3Us', 'TT02'),
+('LOL2','Laning phase like pros', '50000', '4.9', 24, '2022-05-14', 'https://drive.google.com/uc?export=view&id=10EWQSzlIBuLoAW2U4m-pr-oMrRmGOjtR', 'TT02'),
+('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 'https://drive.google.com/uc?export=view&id=1HicXpK6S6cGcXTskgy4Grn_NUn8Z-6lw', 'TT03'),
+('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', 'https://drive.google.com/uc?export=view&id=1Dr8UT7rDvdW_4YTrkLupY9EFv5cT9-9G', 'TT03');
 
 
 INSERT INTO Lesson (lesson_name, duration, link_lesson, course_id)
@@ -132,10 +134,10 @@ VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLa
 ('Definition of Derivative', 6, 'https://youtu.be/qL2vr0Gi6e8','CAL1');
 
 
-INSERT INTO Course_Student (student_id, course_id)
-VALUES('ST01','LOL1'), ('ST01','LOL2'),
-('ST02','PG22'), ('ST02','DCM1'), ('ST02','LOL2'),
-('ST03','OP22'), ('ST03','DCM1'), ('ST03','CAL1');
+INSERT INTO Course_Student (student_id, course_id, comment)
+VALUES('ST01','LOL1','5 star about the quality of the course'), ('ST01','LOL2','clear explaination, thanks a lot Mr.Ren'),
+('ST02','PG22','a little bit unclear about function lesson, too few exercises'), ('ST02','DCM1','10 marks for all sides'), ('ST02','LOL2', null),
+('ST03','OP22','Great course ever, thank you so much'), ('ST03','DCM1', 'a little bit confusion in some lesson'), ('ST03','CAL1', null);
 
 
 
