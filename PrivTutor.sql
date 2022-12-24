@@ -11,7 +11,7 @@ CREATE DATABASE PrivTutor_db
 
 CREATE TABLE Student
 (
-    student_id SERIAL PRIMARY KEY,
+    student_id VARCHAR(4) PRIMARY KEY,
     username VARCHAR(20),
     acc_password VARCHAR(15),
 
@@ -24,7 +24,7 @@ CREATE TABLE Student
 
 CREATE TABLE Teacher
 (
-    teacher_id SERIAL PRIMARY KEY,
+    teacher_id VARCHAR(4) PRIMARY KEY,
     username VARCHAR(20),
     acc_password VARCHAR(15),
 
@@ -38,14 +38,14 @@ CREATE TABLE Teacher
 
 CREATE TABLE Course
 (
-    course_id SERIAL PRIMARY KEY,
+    course_id VARCHAR(4) PRIMARY KEY,
     course_name VARCHAR(40),
     price INT,
     rating NUMERIC(2,1),
     duration INT,
     release_date DATE,
     -- foreign key --
-    teacher_id INT REFERENCES Teacher(teacher_id)
+    teacher_id VARCHAR(4) REFERENCES Teacher(teacher_id)
 );
 
 CREATE TABLE Lesson
@@ -54,88 +54,88 @@ CREATE TABLE Lesson
     lesson_name VARCHAR(40),
     duration INT,
     link_lesson TEXT,
-    course_id INT REFERENCES Course(course_id)
+    course_id VARCHAR(4) REFERENCES Course(course_id)
 );
 
 CREATE TABLE Course_Student
 (
-    course_id INT REFERENCES Course(course_id),
-    student_id INT REFERENCES Student(student_id),
+    course_id VARCHAR(4) REFERENCES Course(course_id),
+    student_id VARCHAR(4) REFERENCES Student(student_id),
     PRIMARY KEY (course_id, student_id)
 );
 
-INSERT INTO Student (username, acc_password, full_name, date_of_birth, email, balance) 
-VALUES ('Ricon', 'A7@siuu', 'Tran Nam Do', '2005-08-29','ridocon23@gmail.com',550000),
-('KingStone', 'gatcha24/7', 'Ly Nhat Nam', '2003-11-15','nhatnam15@gmail.com',849000),
-('Surinxx', 'Thao@240802', 'Nguyen Thu Thao', '2002-10-26', 'thuthao2408@yahoo.com',235000);
+INSERT INTO Student (student_id, username, acc_password, full_name, date_of_birth, email, balance) VALUES 
+('ST01','Ricon', 'A7@siuu', 'Tran Nam Do', '2005-08-29','ridocon23@gmail.com',550000),
+('ST02','KingStone', 'gatcha24/7', 'Ly Nhat Nam', '2003-11-15','nhatnam15@gmail.com',849000),
+('ST03','Surinxx', 'Thao@240802', 'Nguyen Thu Thao', '2002-10-26', 'thuthao2408@yahoo.com',235000);
 
-INSERT INTO Teacher (username, acc_password, full_name, date_of_birth, email, degree, phone)
-VALUES ('litlezeroos', 'AnBaToCom92', 'Tran Quang Huy', '1983-01-31','tqhuy3101@gmail.com', 'Expert in software', '0902921864'),
-('misterRen', 'Ren123', 'Nguyen Van Trong', '1994-04-04','ngairen94@gmail.com', 'LOL coaching', '0903259037'),
-('Thoconbebong', 'Stella@1208', 'Tran Mai Thanh Thuy', '1989-04-04','mtthuy89@gmail.com', 'PHD. in Math', '0932958648');
+INSERT INTO Teacher (teacher_id, username, acc_password, full_name, date_of_birth, email, degree, phone) VALUES 
+('TT01','litlezeroos', 'AnBaToCom92', 'Tran Quang Huy', '1983-01-31','tqhuy3101@gmail.com', 'Expert in software', '0902921864'),
+('TT02','misterRen', 'Ren123', 'Nguyen Van Trong', '1994-04-04','ngairen94@gmail.com', 'LOL coaching', '0903259037'),
+('TT03','Thoconbebong', 'Stella@1208', 'Tran Mai Thanh Thuy', '1989-04-04','mtthuy89@gmail.com', 'PHD. in Math', '0932958648');
 
-INSERT INTO Course (course_name, price, rating, duration, release_date, teacher_id)
-VALUES ('Introduction to programming', '120000', '4.5', 48, '2022-12-20', 1),
-('OOP programing', '120000', '4.5', 24, '2022-11-01', 1),
-('Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 2),
-('How to handle with laning phase', '50000', '4.9', 24, '2022-05-14', 2),
-('Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 3),
-('Calculus I', '300000', '4.4', 50, '2022-01-03', 3);
+INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, teacher_id) VALUES 
+('PG22','Introduction to programming', '120000', '4.5', 48, '2022-12-20', 'TT01'),
+('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'TT01'),
+('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'TT02'),
+('LOL2','How to handle with laning phase', '50000', '4.9', 24, '2022-05-14', 'TT02'),
+('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 'TT03'),
+('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', 'TT03');
 
 
 INSERT INTO Lesson (lesson_name, duration, link_lesson, course_id)
-VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLaQIMoWjnWPrerMILQlmhhrGxfxomJqXl', 1),
-('Create Project Solution on VS', 9, 'https://www.youtube.com/watch?v=5Bzr4MPM2cM&list=PLaQIMoWjnWPrerMILQlmhhrGxfxomJqXl&index=6', 1),
-('Input and Output', 19, 'https://www.youtube.com/watch?v=ofrB8_zEAC4&list=PLaQIMoWjnWPrerMILQlmhhrGxfxomJqXl&index=12', 1),
-('Array', 13, 'https://www.youtube.com/watch?v=cgKiUF98fLo', 1),
-('Array Practice', 13, 'https://www.youtube.com/watch?v=b8-F1w25sVo', 1),
-('Condition Sentence', 10, 'https://youtu.be/QVfTsIEt5G4', 1),
+VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLaQIMoWjnWPrerMILQlmhhrGxfxomJqXl', 'PG22'),
+('Create Project Solution on VS', 9, 'https://www.youtube.com/watch?v=5Bzr4MPM2cM&list=PLaQIMoWjnWPrerMILQlmhhrGxfxomJqXl&index=6', 'PG22'),
+('Input and Output', 19, 'https://www.youtube.com/watch?v=ofrB8_zEAC4&list=PLaQIMoWjnWPrerMILQlmhhrGxfxomJqXl&index=12', 'PG22'),
+('Array', 13, 'https://www.youtube.com/watch?v=cgKiUF98fLo', 'PG22'),
+('Array Practice', 13, 'https://www.youtube.com/watch?v=b8-F1w25sVo', 'PG22'),
+('Condition Sentence', 10, 'https://youtu.be/QVfTsIEt5G4', 'PG22'),
 
-('Intro to OOP', 6, 'https://youtu.be/DWvYJpZnat8', 2),
-('Class', 10, 'https://youtu.be/qmd2iXD1v10', 2),
-('Object', 8, 'https://youtu.be/ErGHKd6oxEQ', 2),
-('Property and Method', 11, 'https://youtu.be/MgrFoQYHPmk', 2),
-('Getter and Setter', 13, 'https://youtu.be/M46igUY2mmI', 2),
-('Constructor', 9, 'https://youtu.be/Bm0C_ieZ6A4', 2),
-('Inheritance', 7, 'https://youtu.be/bsTG50k3b3g', 2),
-('Inheritance with code', 9, 'https://youtu.be/uXalSKIxS6Y', 2),
+('Intro to OOP', 6, 'https://youtu.be/DWvYJpZnat8', 'OP22'),
+('Class', 10, 'https://youtu.be/qmd2iXD1v10', 'OP22'),
+('Object', 8, 'https://youtu.be/ErGHKd6oxEQ', 'OP22'),
+('Property and Method', 11, 'https://youtu.be/MgrFoQYHPmk', 'OP22'),
+('Getter and Setter', 13, 'https://youtu.be/M46igUY2mmI', 'OP22'),
+('Constructor', 9, 'https://youtu.be/Bm0C_ieZ6A4', 'OP22'),
+('Inheritance', 7, 'https://youtu.be/bsTG50k3b3g', 'OP22'),
+('Inheritance with code', 9, 'https://youtu.be/uXalSKIxS6Y', 'OP22'),
 
-('League guide for beginners', 25, 'https://youtu.be/u9JdENUoGik', 3),
-('Beginners guide for ADC', 14, 'https://youtu.be/Ci-LYjHBk4U', 3),
-('Beginners guide for Mid lane', 15, 'https://youtu.be/zGKL1KXNInI', 3),
-('Beginners guide for Jungler', 20, 'https://youtu.be/ykpyhtOYIJQ', 3),
-('Beginners guide for Top lane', 11, 'https://youtu.be/mWirtlXlb2w', 3),
-('Beginners guide for SP', 12, 'https://youtu.be/I9oTNMjAMh8', 3),
+('League guide for beginners', 25, 'https://youtu.be/u9JdENUoGik', 'LOL1'),
+('Beginners guide for ADC', 14, 'https://youtu.be/Ci-LYjHBk4U', 'LOL1'),
+('Beginners guide for Mid lane', 15, 'https://youtu.be/zGKL1KXNInI', 'LOL1'),
+('Beginners guide for Jungler', 20, 'https://youtu.be/ykpyhtOYIJQ', 'LOL1'),
+('Beginners guide for Top lane', 11, 'https://youtu.be/mWirtlXlb2w', 'LOL1'),
+('Beginners guide for SP', 12, 'https://youtu.be/I9oTNMjAMh8', 'LOL1'),
 
-('Play SP like CoreJJ part1', 6, 'https://youtu.be/v-ec5astbE0', 4),
-('Mindset and Roaming', 8, 'https://youtu.be/_U61tI1E9e0', 4),
-('Vision control', 13, 'https://youtu.be/6cXqzH2vMH8', 4),
-('Farming tips', 10, 'https://youtu.be/jOSyf1NQspo', 4),
-('Wave Control Guide', 16, 'https://youtu.be/p9ZUxaCpvjc', 4),
-('Trading Guide', 15, 'https://youtu.be/L7qPSGmS9ik', 4),
-('Macro Guide', 15, 'https://youtu.be/H9OB_aXv3ts', 4),
-('Jungler Macro and Ganking', 16, 'https://youtu.be/TFFz8OILKPM',4),
+('Play SP like CoreJJ part1', 6, 'https://youtu.be/v-ec5astbE0', 'LOL2'),
+('Mindset and Roaming', 8, 'https://youtu.be/_U61tI1E9e0', 'LOL2'),
+('Vision control', 13, 'https://youtu.be/6cXqzH2vMH8', 'LOL2'),
+('Farming tips', 10, 'https://youtu.be/jOSyf1NQspo', 'LOL2'),
+('Wave Control Guide', 16, 'https://youtu.be/p9ZUxaCpvjc', 'LOL2'),
+('Trading Guide', 15, 'https://youtu.be/L7qPSGmS9ik', 'LOL2'),
+('Macro Guide', 15, 'https://youtu.be/H9OB_aXv3ts', 'LOL2'),
+('Jungler Macro and Ganking', 16, 'https://youtu.be/TFFz8OILKPM','LOL2'),
 
 
-('Set theory', 17, 'https://www.youtube.com/watch?v=tyDKR4FG3Yw&list=PLDDGPdw7e6Ag1EIznZ-m-qXu4XX3A0cIz',5),
-('Cartesian products on sets', 11, 'https://youtu.be/NnEkVooAsxk',5),
-('Subset and power set', 15, 'https://youtu.be/H5D6EAezsXQ',5),
-('Propositional Logic', 11, 'https://youtu.be/itrXYg41-V0',5),
-('Truth Table', 11, 'https://youtu.be/UiGu57JzLkE',5),
-('Logical Laws', 15, 'https://youtu.be/eihhu72YdpQ',5),
+('Set theory', 17, 'https://www.youtube.com/watch?v=tyDKR4FG3Yw&list=PLDDGPdw7e6Ag1EIznZ-m-qXu4XX3A0cIz','DCM1'),
+('Cartesian products on sets', 11, 'https://youtu.be/NnEkVooAsxk','DCM1'),
+('Subset and power set', 15, 'https://youtu.be/H5D6EAezsXQ','DCM1'),
+('Propositional Logic', 11, 'https://youtu.be/itrXYg41-V0','DCM1'),
+('Truth Table', 11, 'https://youtu.be/UiGu57JzLkE','DCM1'),
+('Logical Laws', 15, 'https://youtu.be/eihhu72YdpQ','DCM1'),
 
-('Intro to limit', 16, 'https://youtu.be/PaBnLWc_17g',6),
-('Limit Laws', 12, 'https://youtu.be/0ByO2ToZ7AU',6),
-('Finding Limit', 16, 'https://youtu.be/CSALbevEMfs',6),
-('Continuity', 15, 'https://youtu.be/mviEiFLm1mg',6),
-('Continuity Law', 14, 'https://youtu.be/V1mRyKQcaRo',6),
-('Definition of Derivative', 6, 'https://youtu.be/qL2vr0Gi6e8',6);
+('Intro to limit', 16, 'https://youtu.be/PaBnLWc_17g','CAL1'),
+('Limit Laws', 12, 'https://youtu.be/0ByO2ToZ7AU','CAL1'),
+('Finding Limit', 16, 'https://youtu.be/CSALbevEMfs','CAL1'),
+('Continuity', 15, 'https://youtu.be/mviEiFLm1mg','CAL1'),
+('Continuity Law', 14, 'https://youtu.be/V1mRyKQcaRo','CAL1'),
+('Definition of Derivative', 6, 'https://youtu.be/qL2vr0Gi6e8','CAL1');
 
 
 INSERT INTO Course_Student (student_id, course_id)
-VALUES(1,3), (1,4), 
-(2,1), (2,5), (2,4),
-(3,2), (3,6), (3,4), (3,5);
+VALUES('ST01','LOL1'), ('ST01','LOL2'),
+('ST02','PG22'), ('ST02','DCM1'), ('ST02','LOL2'),
+('ST03','OP22'), ('ST03','DCM1'), ('ST03','CAL1');
 
 
 
