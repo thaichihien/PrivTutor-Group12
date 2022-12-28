@@ -65,10 +65,6 @@ footer {
     width: 66px;
 }
 
-.main-content {
-    background-color: var(--content-background);
-}
-
 .sidenav {
     height: 700px;
     width: 20%;
@@ -107,5 +103,23 @@ footer {
 }
 
 .main-content {
+    background-color: var(--content-background);
     width: 80%;
+}
+
+.main-content .title {
+    margin-top: 60px;
+    margin-left: 51px;
+    font-size: 40px;
+}
+
+.main-content .course-item {
+    display: inline;
+    padding: 20px;
+    text-decoration: none;
+    color: black /* when add white background, change color to #883898 */
+}
+
+.main-content .course-item:hover {
+    color: #081131;
 }
