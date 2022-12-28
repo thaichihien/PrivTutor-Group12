@@ -17,7 +17,7 @@ DB_PASSWORD = 'mật khẩu postgres'
 ```
 ## Chạy Server
 
-- Nhớ dẫn cmd đến thư mục server trước, ví dụ khi mở folder này trên vscode nhấn " ctrl + ` " và chạy cmd:
+- Nhớ dẫn cmd đến thư mục server trước, ví dụ khi mở folder này trên vscode nhấn " ctrl + shift + ` " và chạy cmd:
 
 `cd server`
 
