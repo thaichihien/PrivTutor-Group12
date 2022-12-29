@@ -108,3 +108,179 @@ footer {
 .main-content {
     width: 80%;
 }
+
+.main-container {
+    background-color: white;
+    margin: 10px 5px;
+    padding: 30px 0;
+}
+
+.main-title,
+.tag-row,
+.recommend-course {
+    margin: 0 30px;
+}
+
+.tag-row {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tag-row a {
+    margin: 0 10px;
+    width: fit-content;
+    text-decoration: none;
+    color: black;
+}
+
+.tag-row a:first-child {
+    margin: 0 10px 0 0;
+}
+
+.slide-container {
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+.card-container {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.card-container .image {
+    height: 100px;
+    width: 150px;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.card img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-container .content {
+    color: black;
+    word-break: break-word;
+}
+
+.slide-container .content .course-name {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.slide-container .content .course-author {
+    font-size: 10px;
+}
+
+.card-container .content .course-rating {
+    font-size: 10px;
+}
+
+.card-container .content .course-rating .number-people-rating {
+    font-size: 7px;
+}
+
+.card-container .content .course-price {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.swiper-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* Course Comments */
+
+.course-comment {
+    margin: 15px 0;
+    padding: 10px 30px;
+    background-color: #D7C9E4;
+}
+
+.course-comment h2 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.comment-card {
+    background-color: white;
+    width: 300px;
+    border: solid 1px lightgrey;
+    padding: 10px;
+}
+
+.comment-card .comments {
+    word-break: break-word;
+}
+
+.comment-card .comment-author img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.comment-author .author-name {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+hr {
+    background-color: black;
+    height: 2px;
+    margin: 5px 0;
+}
+
+.course-link {
+    display: flex;
+    flex-direction: row;
+}
+
+.course-link .icon {
+    margin-right: 5px;
+    line-height: 40px;
+    font-size: 25px;
+}
+
+.course-link .link {
+    font-size: 15px;
+    font-weight: 500;
+    color: blue;
+    text-decoration: none;
+}
+
+
+/* Featured Topics */
+
+.featured-topic {
+    background-color: #D7C9E4;
+    padding: 30px;
+}
+
+.topic-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.topic-container .topic {
+    width: 300px;
+}
+
+.topic-container .topic .topic-title {
+    font-weight: bold;
+}
+
+.topic-button button {
+    background-color: #D7C9E4;
+}
+
+.topic-button button a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
