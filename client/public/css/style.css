@@ -65,10 +65,6 @@ footer {
     width: 66px;
 }
 
-.main-content {
-    background-color: var(--content-background);
-}
-
 .sidenav {
     height: 700px;
     width: 20%;
@@ -94,6 +90,7 @@ footer {
     color: black;
     display: block;
     border-radius: 10px;
+    font-weight: 500;
 }
 
 .sidenav .active-page {
@@ -102,10 +99,11 @@ footer {
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #ad57fe;
 }
 
 .main-content {
+    background-color: var(--content-background);
     width: 80%;
 }
 
