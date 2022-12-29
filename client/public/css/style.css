@@ -107,9 +107,26 @@ footer {
     width: 80%;
 }
 
+.main-content .tab-1{
+}
+
+.main-content .tab-2{
+}
+
+.main-content .tabs{
+    display: flex;
+    margin-left: 50px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.main-content .tabs .tab-1 .tab-2{
+    display:inline;
+}
+
 .main-content .title {
     margin-top: 60px;
-    margin-left: 51px;
+    margin-left: 50px;
     font-size: 40px;
 }
 
