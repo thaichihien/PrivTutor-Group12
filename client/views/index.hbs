@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/6ac12fa637.js" crossorigin="anonymous"></script>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href=" /css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src=" /img/logo.png" alt="Logo">
+                    <span class="navbar-tittle">PrivTutor</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="search-bar">
+                        <form class="d-flex" role="search">
+                            <div class="search-bar">
+                                <input class="form-control me-2" type="search" placeholder="Search students, teachers, courses, etc..." aria-label="Search">
+                                <img src=" /img/searchicon.svg" id="input_img">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="nav-item-container">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-bell"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span class="avatar-container">
+                                        <img src=" /img/logo.png" alt="" class="avatar">
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Hoàng Minh</a>
+                            </li>
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+
+                <div class="sidenav">
+                    <a class="active-page" href="#">
+                        <img src=" /img/chart-line-solid.svg" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#">
+                        <img src=" /img/graduation-cap-solid.svg" alt="">
+                        <span>Courses</span>
+                    </a>
+                    <a href="#">
+                        <img src=" /img/users-solid.svg" alt="">
+                        <span>Find Mentor</span>
+                    </a>
+                    <a href="#">
+                        <img src=" /img/clipboard-list-solid.svg" alt="">
+                        <span>Booking & Schedule</span>
+                    </a>
+
+
+                </div>
+
+                <div class="main-content">
+                    <div class="main-container">
+                        <h1 class="main-title">Learn in-demand professional skills</h1>
+                        <div class="tag-row">
+                            <a href="#">Python</a>
+                            <a href="#">Web development</a>
+                            <a href="#">JavaScript</a>
+                            <a href="#">C/C++</a>
+                            <a href="#">ReactJS</a>
+                            <a href="#">HTML/CSS</a>
+                        </div>
+                        <br>
+                        <div class="recommend-course">
+                            <div class="swiper mySwiper slide-container">
+                                <div class="swiper-wrapper card">
+                                    {{#each course}}
+                                        <div class="swiper-slide">
+                                        <div class=" card-container">
+                                            <div class="image">
+                                                <img src="{{courseimage}}" alt="">
+                                            </div>
+
+                                            <div class="content">
+                                                <div class="course-name">{{coursetitle}}</div>
+                                                <div class="course-author">{{author}}</div>
+                                                <div class="course-rating">
+                                                    <span class="rating">{{rating}}</span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                                    <span class="number-people-rating">(4,172)</span>
+                                                </div>
+                                                <div class="course-price"><span class="currency" style="font-style: underline;">đ</span>{{price}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                    {{!-- <div class="swiper-slide">
+                                        <div class=" card-container">
+                                            <div class="image">
+                                                <img src=" /img/logo.png" alt="">
+                                            </div>
+
+                                            <div class="content">
+                                                <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                                <div class="course-author">Avinash Jain, The Codex</div>
+                                                <div class="course-rating">
+                                                    <span class="rating">4.5</span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                                    <span class="number-people-rating">(4,172)</span>
+                                                </div>
+                                                <div class="course-price"><span class="currency" style="font-style: underline;">đ</span>999,000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class=" card-container">
+                                            <div class="image">
+                                                <img src=" /img/logo.png" alt="">
+                                            </div>
+
+                                            <div class="content">
+                                                <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                                <div class="course-author">Avinash Jain, The Codex</div>
+                                                <div class="course-rating">
+                                                    <span class="rating">4.5</span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star"></i></span>
+                                                    <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                                    <span class="number-people-rating">(4,172)</span>
+                                                </div>
+                                                <div class="course-price"><span class="currency" style="font-style: underline;">đ</span>999,000</div>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+
+
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="course-comment">
+                            <h2>How learners like you are achieving their goal</h2>
+                            <div class="swiper mySwiper comment-slide-container">
+                                <div class="swiper-wrapper comment-card-container">
+                                    {{#each review}}
+                                       <div class="swiper-slide">
+                                        <div class="comment-card">
+                                            <div class="double-quotes-icon"><i class="fa-sharp fa-solid fa-quote-left"></i></div>
+                                            <div class="comments">{{comment}}.</div>
+                                            <br>
+                                            <div class="comment-author">
+                                                <img src=" /img/logo.png" class="author-avatar">
+                                                <span class="author-name">{{author}}</span>
+                                            </div>
+                                            <hr>
+                                            <div class="course-link">
+                                                <div class="icon"><i class="fa-solid fa-circle-play"></i></div>
+                                                <a href="#" class="link">{{coursetitle}}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/each}}
+                                    {{!-- <div class="swiper-slide">
+                                        <div class="comment-card">
+                                            <div class="double-quotes-icon"><i class="fa-sharp fa-solid fa-quote-left"></i></div>
+                                            <div class="comments">I am proud to say that after a few months of taking this course... I passed my exam and am now an AWS Certified Cloud Practitioner! This content was exactly what the CCP exam covered.</div>
+                                            <br>
+                                            <div class="comment-author">
+                                                <img src=" /img/logo.png" class="author-avatar">
+                                                <span class="author-name">Will A</span>
+                                            </div>
+                                            <hr>
+                                            <div class="course-link">
+                                                <div class="icon"><i class="fa-solid fa-circle-play"></i></div>
+                                                <a href="#" class="link">[New] Ultimate AWS Certified Cloud Practioner - 2022</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="comment-card">
+                                            <div class="double-quotes-icon"><i class="fa-sharp fa-solid fa-quote-left"></i></div>
+                                            <div class="comments">I am proud to say that after a few months of taking this course... I passed my exam and am now an AWS Certified Cloud Practitioner! This content was exactly what the CCP exam covered.</div>
+                                            <br>
+                                            <div class="comment-author">
+                                                <img src=" /img/logo.png" class="author-avatar">
+                                                <span class="author-name">Will A</span>
+                                            </div>
+                                            <hr>
+                                            <div class="course-link">
+                                                <div class="icon"><i class="fa-solid fa-circle-play"></i></div>
+                                                <a href="#" class="link">[New] Ultimate AWS Certified Cloud Practioner - 2022</a>
+                                            </div>
+                                        </div>
+                                    </div> --}}
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="featured-topic">
+                            <h2>Featured topics by category</h2>
+                            <div class="topic-container">
+                                <div class="topic">
+                                    <div class="topic-title">Development</div>
+                                    <br>
+                                    <a href="#">Python</a>
+                                    <div class="student-number">36,354,994 students</div>
+                                    <a href="#">Web development</a>
+                                    <div class="student-number">11,415,615 students</div>
+                                    <a href="#">Machine Learning</a>
+                                    <div class="student-number">7,070,015 students</div>
+                                </div>
+                                <div class="topic">
+                                    <div class="topic-title">Business</div>
+                                    <br>
+                                    <a href="#">Financial Analysis</a>
+                                    <div class="student-number">1,195,282 students</div>
+                                    <a href="#">SQL</a>
+                                    <div class="student-number">5,977,561 students</div>
+                                    <a href="#">PMP</a>
+                                    <div class="student-number">1,733,396 students</div>
+                                </div>
+                                <div class="topic">
+                                    <div class="topic-title">IT and Software</div>
+                                    <br>
+                                    <a href="#">AWS Certification</a>
+                                    <div class="student-number">6,078,244 students</div>
+                                    <a href="#">Ethical Hacking</a>
+                                    <div class="student-number">19,931,066 students</div>
+                                    <a href="#">Cyber Security</a>
+                                    <div class="student-number">3,996,037 students</div>
+                                </div>
+                                <div class="topic">
+                                    <div class="topic-title">Design</div>
+                                    <br>
+                                    <a href="#">Photoshop</a>
+                                    <div class="student-number">10,909,736 students</div>
+                                    <a href="#">Graphic Design</a>
+                                    <div class="student-number">3,381,052 students</div>
+                                    <a href="#">Drawing</a>
+                                    <div class="student-number">2,410,849 students</div>
+                                </div>
+                            </div>
+                            <br>
+                            <form class="topic-button">
+                                <button><a href="#">Explore more topics</a></button>
+                            </form>
+                        </div>
+
+                        <br>
+
+                    </div>
+                </div>
+
+            </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+
+</html>

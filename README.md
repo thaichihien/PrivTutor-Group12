@@ -10,7 +10,7 @@ Biến môi trường giúp cho việc bảo mật, config theo máy của mình
 - Nhập các thông tin sau vào file đó :
 ```
 DB_HOST = 'localhost'
-DB_NAME = 'PrivTutor_db'
+DB_NAME="privtutor_db"
 DB_PORT="5432"
 DB_USERNAME = 'tên tài khoản postgres (nếu không có thì để mặc định là postgres'
 DB_PASSWORD = 'mật khẩu postgres'
@@ -43,7 +43,21 @@ hoặc
 - Làm xong một chức năng, một hàm rồi (***Không bị lỗi compile***) &rarr; **COMMIT** và **PUSH**
 - Chỉ nên làm trên **file mình được giao**, cần chỉnh file khác thì báo trước
 - Deadline luôn là tối ngày hôm đó phải có
-## Công việc:
+## Mục tiêu:
 - [ ] Xem tất cả khóa học ở trang chủ
 - [ ] Xem trang chi tiết của một khóa học
 - [ ] Mua một khóa học
+## Công việc:
+<details>
+    <summary> <b>1. Viết câu truy vấn, sửa csdl cho trang chủ</b> </summary>
+    <ul>
+        <li>Người làm: Hùng</li>
+        <li>Mô tả:
+            <ul>
+                <li>Xem yêu cầu tại file</li>
+            </ul>
+        </li>
+        <li>File làm việc: /server/controllers/dataController.js</li>
+        <li>Deadline: 30/12/2022</li>
+    </ul>
+    </details>

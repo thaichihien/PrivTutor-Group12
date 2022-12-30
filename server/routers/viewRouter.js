@@ -1,7 +1,9 @@
 const router = require('express').Router()
+const renderController = require('../controllers/renderController')
+
 
 // TODO render index
-router.get('/',(req,res) => res.send("Thành công"));
+router.get('/',renderController.renderIndex);
 
 
 
