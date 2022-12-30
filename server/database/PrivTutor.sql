@@ -160,6 +160,15 @@ SELECT * FROM Lesson;
 SELECT * FROM Course_Student;
 
 
+-- Query for get All Courses function --
+SELECT c.course_id, c.logoCourseURL AS courseimage , c.course_name AS coursetitle, t.full_name AS author, c.rating, c.price 
+FROM Teacher t JOIN Course c ON c.teacher_id = t.teacher_id
+
+-- Query for get All Reviews function --
+SELECT a.comment, s.full_name AS author, c.course_name AS coursetitle
+FROM Course_Student a JOIN Course c ON a.course_id = c.course_id JOIN Student s ON s.student_id = a.student_id
+WHERE a.comment IS NOT NULL
+
 --DROP TABLE Student
 --DROP TABLE Teacher
 --DROP TABLE Course
