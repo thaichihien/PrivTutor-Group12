@@ -39,8 +39,8 @@ const getDetailCourse = async (id) => {
             COUNT(a.student_id) AS  numberrating, COUNT(a.course_id) AS numberstudent,
             t.full_name AS author, c.logoCourseURL AS courseimg, c.price
             FROM Teacher t JOIN Course c USING (teacher_id) JOIN Course_Student a
-            USING (course_id) WHERE c.course_id = ${id} AND a.rating IS NOT NULL
-            GROUP BY c.course_id, t.teacher_id`
+            USING (course_id) WHERE c.course_id = $1 AND a.rating IS NOT NULL
+            GROUP BY c.course_id, t.teacher_id`,[id]
         )
 
         // course = {
