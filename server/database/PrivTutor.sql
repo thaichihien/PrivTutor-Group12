@@ -9,33 +9,36 @@ CREATE DATABASE PrivTutor_db
     IS_TEMPLATE = False;
 
 
+CREATE DATABASE PrivTutor_db
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
 CREATE TABLE Student
 (
     student_id VARCHAR(4) PRIMARY KEY,
     username VARCHAR(20),
     acc_password VARCHAR(15),
-
     full_name VARCHAR(100),
     date_of_birth DATE,
     email VARCHAR(35) UNIQUE,
-
     balance INT
 );
-
 CREATE TABLE Teacher
 (
     teacher_id VARCHAR(4) PRIMARY KEY,
     username VARCHAR(20),
     acc_password VARCHAR(15),
-
     full_name VARCHAR(100),
     date_of_birth DATE,
     email VARCHAR(35) UNIQUE,
-
     degree VARCHAR(20),
     phone VARCHAR(10)
 );
-
 CREATE TABLE Course
 (
     course_id VARCHAR(4) PRIMARY KEY,
@@ -44,13 +47,11 @@ CREATE TABLE Course
     rating NUMERIC(2,1),
     duration INT,
     release_date DATE,
-    numberstudent INT,
     logoCourseURL TEXT,
 	description TEXT,
     -- foreign key --
     teacher_id VARCHAR(4) REFERENCES Teacher(teacher_id)
 );
-
 CREATE TABLE Lesson
 (
     lesson_id SERIAL PRIMARY KEY,
@@ -59,15 +60,7 @@ CREATE TABLE Lesson
     link_lesson TEXT,
     course_id VARCHAR(4) REFERENCES Course(course_id)
 );
-
 CREATE TABLE Course_Student
-(
-    course_id VARCHAR(4) REFERENCES Course(course_id),
-    student_id VARCHAR(4) REFERENCES Student(student_id),
-    PRIMARY KEY (course_id, student_id)
-);
-
-CREATE TABLE Review
 (
     course_id VARCHAR(4) REFERENCES Course(course_id),
     student_id VARCHAR(4) REFERENCES Student(student_id),
@@ -75,7 +68,6 @@ CREATE TABLE Review
     comment TEXT,
     PRIMARY KEY (course_id, student_id)
 );
-
 INSERT INTO Student (student_id, username, acc_password, full_name, date_of_birth, email, balance) VALUES 
 ('ST01','Ricon', 'A7@siuu', 'Tran Nam Do', '2005-08-29','ridocon23@gmail.com',550000),
 ('ST02','KingStone', 'gatcha24/7', 'Ly Nhat Nam', '2003-11-15','nhatnam15@gmail.com',849000),
@@ -86,19 +78,19 @@ INSERT INTO Teacher (teacher_id, username, acc_password, full_name, date_of_birt
 ('TT02','misterRen', 'Ren123', 'Nguyen Van Trong', '1994-04-04','ngairen94@gmail.com', 'LOL coaching', '0903259037'),
 ('TT03','Thoconbebong', 'Stella@1208', 'Tran Mai Thanh Thuy', '1989-04-04','mtthuy89@gmail.com', 'PHD. in Math', '0932958648');
 
-INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, logoCourseURL, numberstudent, description, teacher_id) VALUES 
-('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', 'https://drive.google.com/uc?export=view&id=1Ln9yp1H5uFAttg3eex834mivGWJ0bP7G', 1,
+INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, logoCourseURL, description, teacher_id) VALUES 
+('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', 'https://drive.google.com/uc?export=view&id=1Ln9yp1H5uFAttg3eex834mivGWJ0bP7G', 
  'Learn to program with one of the most powerful programming languages that exists today with the modern C++','TT01'),
-('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'https://drive.google.com/uc?export=view&id=1u6bbnnENbIc_MiZgqPKJNxyKqLJ8zAyk', 1,
+('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'https://drive.google.com/uc?export=view&id=1u6bbnnENbIc_MiZgqPKJNxyKqLJ8zAyk',
  'Learn Java In This Course And Master The Art Of OOP Programming And Patterns','TT01'),
-('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'https://drive.google.com/uc?export=view&id=1H-DYlYFcl5J7GFNkygd8JBV-bKCRP3Us', 1,
+('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'https://drive.google.com/uc?export=view&id=1H-DYlYFcl5J7GFNkygd8JBV-bKCRP3Us', 
  'Most basic course for League newbies with detailed explainations about game mechanics and champion power spikes','TT02'),
-('LOL2','Laning phase like pros', '50000', '4.9', 24, '2022-05-14', 'https://drive.google.com/uc?export=view&id=10EWQSzlIBuLoAW2U4m-pr-oMrRmGOjtR', 2,
+('LOL2','Laning phase like pros', '50000', '4.9', 24, '2022-05-14', 'https://drive.google.com/uc?export=view&id=10EWQSzlIBuLoAW2U4m-pr-oMrRmGOjtR', 
  'Learn how to play League like a professional players and handle well with every matchup in all lanes in games','TT02'),
-('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 'https://drive.google.com/uc?export=view&id=1HicXpK6S6cGcXTskgy4Grn_NUn8Z-6lw', 2,
- 'Student can master the logic rules, set theory, permutation and combination rules in counting objects','TT03'),
-('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', 'https://drive.google.com/uc?export=view&id=1Dr8UT7rDvdW_4YTrkLupY9EFv5cT9-9G', 1,
- 'Students learn how to calculate differentiation and integration, also dealing with problems where variables change with time.','TT03');
+('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 'https://drive.google.com/uc?export=view&id=1HicXpK6S6cGcXTskgy4Grn_NUn8Z-6lw', 
+'Student can master the logic rules, set theory, permutation and combination rules in counting objects','TT03'),
+('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', 'https://drive.google.com/uc?export=view&id=1Dr8UT7rDvdW_4YTrkLupY9EFv5cT9-9G', 
+'Students learn how to calculate differentiation and integration, also dealing with problems where variables change with time.','TT03');
 
 INSERT INTO Lesson (lesson_name, duration, link_lesson, course_id)
 VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLaQIMoWjnWPrerMILQlmhhrGxfxomJqXl', 'PG22'),
@@ -133,7 +125,6 @@ VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLa
 ('Macro Guide', 15, 'https://youtu.be/H9OB_aXv3ts', 'LOL2'),
 ('Jungler Macro and Ganking', 16, 'https://youtu.be/TFFz8OILKPM','LOL2'),
 
-
 ('Set theory', 17, 'https://www.youtube.com/watch?v=tyDKR4FG3Yw&list=PLDDGPdw7e6Ag1EIznZ-m-qXu4XX3A0cIz','DCM1'),
 ('Cartesian products on sets', 11, 'https://youtu.be/NnEkVooAsxk','DCM1'),
 ('Subset and power set', 15, 'https://youtu.be/H5D6EAezsXQ','DCM1'),
@@ -148,18 +139,12 @@ VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLa
 ('Continuity Law', 14, 'https://youtu.be/V1mRyKQcaRo','CAL1'),
 ('Definition of Derivative', 6, 'https://youtu.be/qL2vr0Gi6e8','CAL1');
 
-
-INSERT INTO Course_Student (student_id, course_id)
-VALUES('ST01','LOL1'), ('ST01','LOL2'),
-('ST02','PG22'), ('ST02','DCM1'), 
-('ST02','LOL2'), ('ST03','OP22'), 
-('ST03','DCM1'), ('ST03', 'CAL1');
-
-INSERT INTO Review (student_id, course_id, rating, comment)
+INSERT INTO Course_Student (student_id, course_id, rating, comment)
 VALUES('ST01','LOL1',5.0,'5 star about the quality of the course'), 
 ('ST01','LOL2',4.9,'clear explaination, thanks a lot Mr.Ren'),
 ('ST02','PG22',4.0,'a little bit unclear about function lesson, too few exercises'), 
 ('ST02','DCM1',5.0,'10 marks for all sides'), 
+('ST02','LOL2', null,null),
 ('ST03','OP22',4.8,'Great course ever, thank you so much'), 
 ('ST03','DCM1', 4.5, 'a little bit confusion in some lesson'), 
 ('ST03', 'CAL1', 4.2, null);
@@ -169,7 +154,6 @@ SELECT * FROM Course;
 SELECT * FROM Teacher;
 SELECT * FROM Lesson;
 SELECT * FROM Course_Student;
-SELECT * FROM Review;
 
 
 -- Query for get All Courses function --
