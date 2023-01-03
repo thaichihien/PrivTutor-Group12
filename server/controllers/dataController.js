@@ -67,5 +67,6 @@ const getDetailCourse = async (id) => {
 
 module.exports = {
     getAllCourse,
+    getDetailCourse,
     getAllReview
 }

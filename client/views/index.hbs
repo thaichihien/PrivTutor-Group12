@@ -121,12 +121,12 @@
                                     {{#each course}}
                                         <div class="swiper-slide">
                                         <div class=" card-container">
-                                            <div class="image">
+                                            <a href="/course/{{course_id}}" class="image">
                                                 <img src="{{courseimage}}" alt="">
-                                            </div>
+                                            </a>
 
                                             <div class="content">
-                                                <div class="course-name">{{coursetitle}}</div>
+                                                <a href="/course/{{course_id}}" style="text-decoration: none;color:black" class="course-name">{{coursetitle}}</a>
                                                 <div class="course-author">{{author}}</div>
                                                 <div class="course-rating">
                                                     <span class="rating">{{rating}}</span>

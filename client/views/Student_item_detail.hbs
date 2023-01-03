@@ -18,8 +18,8 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/client/public/css/style.css">
-    <link rel="stylesheet" href="/client/public/css/Student_item_detail_style.css">
+    <link rel="stylesheet" href=" /css/style.css">
+    <link rel="stylesheet" href=" /css/Student_item_detail_style.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
-                    <img src="/client/public/img/logo.png" alt="Logo">
+                    <img src=" /img/logo.png" alt="Logo">
                     <span class="navbar-tittle">PrivTutor</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
                         <form class="d-flex" role="search">
                             <div class="search-bar">
                                 <input class="form-control me-2" type="search" placeholder="Search students, teachers, courses, etc..." aria-label="Search">
-                                <img src="/client/public/img/searchicon.svg" id="input_img">
+                                <img src=" /img/searchicon.svg" id="input_img">
                             </div>
                         </form>
                     </div>
@@ -51,7 +51,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span class="avatar-container">
-                                        <img src="/client/public/img/logo.png" alt="" class="avatar">
+                                        <img src=" /img/logo.png" alt="" class="avatar">
                                     </span>
                                 </a>
                             </li>
@@ -85,19 +85,19 @@
 
                 <div class="sidenav">
                     <a class="active-page" href="#">
-                        <img src="/client/public/img/chart-line-solid.svg" alt="">
+                        <img src=" /img/chart-line-solid.svg" alt="">
                         <span>Dashboard</span>
                     </a>
                     <a href="#">
-                        <img src="/client/public/img/graduation-cap-solid.svg" alt="">
+                        <img src=" /img/graduation-cap-solid.svg" alt="">
                         <span>Courses</span>
                     </a>
                     <a href="#">
-                        <img src="/client/public/img/users-solid.svg" alt="">
+                        <img src=" /img/users-solid.svg" alt="">
                         <span>Find Mentor</span>
                     </a>
                     <a href="#">
-                        <img src="/client/public/img/clipboard-list-solid.svg" alt="">
+                        <img src=" /img/clipboard-list-solid.svg" alt="">
                         <span>Booking & Schedule</span>
                     </a>
 
@@ -108,10 +108,10 @@
                     <div class="main-content">
                         <div class="main_black">
                             <div class="black_container">
-                                <div class="black__title">{{title}}</div>
-                                <div class="black__description">{{description}}</div>
+                                <div class="black__title">{{course.title}}</div>
+                                <div class="black__description">{{course.description}}</div>
                                 <div class="rate d-flex">
-                                    <div class="rate__average">{{ratings}}</div>
+                                    <div class="rate__average">{{course.ratings}}</div>
                                     <div class="rate_stars d-flex">
                                         <img src="../public/img/Star.png" alt="">
                                         <img src="../public/img/Star.png" alt="">
@@ -119,10 +119,10 @@
                                         <img src="../public/img/Star.png" alt="">
                                         <img src="../public/img/Star.png" alt="">
                                     </div>
-                                    <div class="rate__number">(({{numberrating}}) ratings)</div>
-                                    <div class="rate__student">{{numberstudent}} students</div>
+                                    <div class="rate__number">(({{course.numberrating}}) ratings)</div>
+                                    <div class="rate__student">{{course.numberstudent}} students</div>
                                 </div>
-                                <div class="black__author">Created by <span>{{author}}</spa></div>
+                                <div class="black__author">Created by <span>{{course.author}}</spa></div>
                                 <div class="black__foot d-flex">
                                     <div class="text">Last updated 9/2015</div>
                                     <div class="text">English</div>
@@ -130,9 +130,9 @@
                                 </div>
                             </div>
                             <div class="preview">
-                                <img src="{{courseimg}}" alt="" class="preview__img">
+                                <img src="{{course.courseimg}}" alt="" class="preview__img">
                                 <div class="preview__body">
-                                    <div class="preview__price">đ{{price}}</div>
+                                    <div class="preview__price">đ{{course.price}}</div>
                                     <div class="preview__add__btn">Add to cart</div>
                                     <div class="preview__buy__btn">Buy now</div>
                                     <div class="preview__title">This course includes:</div>

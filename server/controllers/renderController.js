@@ -18,7 +18,9 @@ const renderDetailCourse = async(req,res) => {
     try {
         const {id} = req.params
 
+        const course = await dataController.getDetailCourse(id)
 
+        res.render('Student_item_detail',{course})
 
     } catch (error) {
         console.log(error.message)
