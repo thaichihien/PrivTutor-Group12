@@ -34,14 +34,16 @@ const getAllReview = async() =>{
 const getDetailCourse = async (id) => {
     try {
         // id là id của khóa học
-        const course = await pool.query(
-            `SElECT c.course_name AS title, c.description, c.rating AS ratings,
-            COUNT(a.student_id) AS  numberrating, COUNT(a.course_id) AS numberstudent,
-            t.full_name AS author, c.logoCourseURL AS courseimg, c.price
-            FROM Teacher t JOIN Course c USING (teacher_id) JOIN Course_Student a
-            USING (course_id) WHERE c.course_id = $1 AND a.rating IS NOT NULL
-            GROUP BY c.course_id, t.teacher_id`,[id]
-        )
+        const sql = `SElECT c.course_name AS title, c.description, c.rating AS ratings,
+        COUNT(a.student_id) AS  numberrating, COUNT(a.course_id) AS numberstudent,
+        t.full_name AS author, c.logoCourseURL AS courseimg, c.price
+        FROM Teacher t JOIN Course c USING (teacher_id) JOIN Course_Student a
+        USING (course_id) WHERE c.course_id = $1 AND a.rating IS NOT NULL
+        GROUP BY c.course_id, t.teacher_id`;
+        console.log(id);
+        const value = [id];
+        const course = await pool.query(sql, value)
+        console.log(course);
 
         // course = {
         //     title,          tiêu đề
