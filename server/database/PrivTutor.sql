@@ -44,6 +44,7 @@ CREATE TABLE Course
     rating NUMERIC(2,1),
     duration INT,
     release_date DATE,
+    numberstudent INT,
     logoCourseURL TEXT,
 	description TEXT,
     -- foreign key --
@@ -85,18 +86,18 @@ INSERT INTO Teacher (teacher_id, username, acc_password, full_name, date_of_birt
 ('TT02','misterRen', 'Ren123', 'Nguyen Van Trong', '1994-04-04','ngairen94@gmail.com', 'LOL coaching', '0903259037'),
 ('TT03','Thoconbebong', 'Stella@1208', 'Tran Mai Thanh Thuy', '1989-04-04','mtthuy89@gmail.com', 'PHD. in Math', '0932958648');
 
-INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, logoCourseURL, description, teacher_id) VALUES 
-('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', 'https://drive.google.com/uc?export=view&id=1Ln9yp1H5uFAttg3eex834mivGWJ0bP7G', 
+INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, logoCourseURL, numberstudent, description, teacher_id) VALUES 
+('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', 'https://drive.google.com/uc?export=view&id=1Ln9yp1H5uFAttg3eex834mivGWJ0bP7G', 1,
  'Learn to program with one of the most powerful programming languages that exists today with the modern C++','TT01'),
-('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'https://drive.google.com/uc?export=view&id=1u6bbnnENbIc_MiZgqPKJNxyKqLJ8zAyk',
+('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'https://drive.google.com/uc?export=view&id=1u6bbnnENbIc_MiZgqPKJNxyKqLJ8zAyk', 1,
  'Learn Java In This Course And Master The Art Of OOP Programming And Patterns','TT01'),
-('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'https://drive.google.com/uc?export=view&id=1H-DYlYFcl5J7GFNkygd8JBV-bKCRP3Us', 
+('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'https://drive.google.com/uc?export=view&id=1H-DYlYFcl5J7GFNkygd8JBV-bKCRP3Us', 1,
  'Most basic course for League newbies with detailed explainations about game mechanics and champion power spikes','TT02'),
-('LOL2','Laning phase like pros', '50000', '4.9', 24, '2022-05-14', 'https://drive.google.com/uc?export=view&id=10EWQSzlIBuLoAW2U4m-pr-oMrRmGOjtR', 
+('LOL2','Laning phase like pros', '50000', '4.9', 24, '2022-05-14', 'https://drive.google.com/uc?export=view&id=10EWQSzlIBuLoAW2U4m-pr-oMrRmGOjtR', 2,
  'Learn how to play League like a professional players and handle well with every matchup in all lanes in games','TT02'),
-('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 'https://drive.google.com/uc?export=view&id=1HicXpK6S6cGcXTskgy4Grn_NUn8Z-6lw', 
+('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 'https://drive.google.com/uc?export=view&id=1HicXpK6S6cGcXTskgy4Grn_NUn8Z-6lw', 2,
  'Student can master the logic rules, set theory, permutation and combination rules in counting objects','TT03'),
-('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', 'https://drive.google.com/uc?export=view&id=1Dr8UT7rDvdW_4YTrkLupY9EFv5cT9-9G', 
+('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', 'https://drive.google.com/uc?export=view&id=1Dr8UT7rDvdW_4YTrkLupY9EFv5cT9-9G', 1,
  'Students learn how to calculate differentiation and integration, also dealing with problems where variables change with time.','TT03');
 
 INSERT INTO Lesson (lesson_name, duration, link_lesson, course_id)
@@ -168,6 +169,7 @@ SELECT * FROM Course;
 SELECT * FROM Teacher;
 SELECT * FROM Lesson;
 SELECT * FROM Course_Student;
+SELECT * FROM Review;
 
 
 -- Query for get All Courses function --
@@ -181,13 +183,23 @@ WHERE a.comment IS NOT NULL
 
 -- Query for detail course --
 SElECT c.course_name AS coursetitle, c.description, c.rating AS ratings, c.price,
-COUNT(a.student_id) AS  numberrating, t.full_name AS author, c.logoCourseURL AS courseimg, c.price
-FROM Teacher t JOIN Course c USING (teacher_id) JOIN Course_Student a USING (course_id)
-WHERE a.rating IS NOT NULL
-GROUP BY c.course_name, c.description, c.rating, c.price, t.full_name, c.logoCourseURL
+COUNT(r.student_id) AS  numberrating, c.numberstudent,
+t.full_name AS author, c.logoCourseURL AS courseimg, c.price
+FROM Teacher t JOIN Course c USING (teacher_id) JOIN Review r
+USING (course_id)
+GROUP BY c.course_id, t.teacher_id
+
+-- Counting --
+SElECT COUNT(student_id) AS numberrating, course_id
+FROM Review GROUP BY course_id
+
+SElECT COUNT(student_id) AS numberstudent, course_id
+FROM Course_Student GROUP BY course_id
+
 
 --DROP TABLE Student
 --DROP TABLE Teacher
 --DROP TABLE Course
 --DROP TABLE Lesson
 --DROP TABLE Course_Student
+--DROP TABLE Review
