@@ -42,20 +42,38 @@ const getDetailCourse = async (id) => {
         GROUP BY c.course_id, t.teacher_id`;
 
         const value = [id];
-        const course = await pool.query(sql, value)
+        const data = await pool.query(sql, value)
+        const course = data.rows[0]
+        
 
-        // course = {
-        //     title,          tiêu đề
-        //     description,    đoạn miêu tả ngắn
-        //     ratings,        điểm số
-        //     numberrating,   số lượng người đánh giá
-        //     numberstudent,   số lượng học sinh
-        //     author,             tác giả
-        //     courseimg,      hình ảnh
-        //     price,          giá tiền
+        return course
+
+    } catch (error) {
+        console.log(error.message)
+    }
+
+}
+
+const getAllLessons = async (id) => {
+    try {
+        
+        const lessonData = await pool.query()
+        const lesson = lessonData.rows
+        // lesson = {
+        //     title,
+        //     duration
         // }
 
-        return course.rows
+
+        const linkLessonData = await pool.query()
+        const linkLesson = linkLessonData.rows
+
+        lesson[0].link = linkLesson[0]
+        lesson[1].link = linkLesson[1]
+
+
+        return lesson
+
 
     } catch (error) {
         console.log(error.message)
@@ -66,8 +84,12 @@ const getDetailCourse = async (id) => {
 
 }
 
+
+
+
 module.exports = {
     getAllCourse,
     getDetailCourse,
-    getAllReview
+    getAllReview,
+    getAllLessons
 }

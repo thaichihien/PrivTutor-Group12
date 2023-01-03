@@ -16,7 +16,8 @@
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
     <link rel="stylesheet" href=" /css/style.css">
     <link rel="stylesheet" href=" /css/Student_item_detail_style.css">
@@ -30,14 +31,17 @@
                     <img src=" /img/logo.png" alt="Logo">
                     <span class="navbar-tittle">PrivTutor</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="search-bar">
                         <form class="d-flex" role="search">
                             <div class="search-bar">
-                                <input class="form-control me-2" type="search" placeholder="Search students, teachers, courses, etc..." aria-label="Search">
+                                <input class="form-control me-2" type="search"
+                                    placeholder="Search students, teachers, courses, etc..." aria-label="Search">
                                 <img src=" /img/searchicon.svg" id="input_img">
                             </div>
                         </form>
@@ -46,7 +50,8 @@
                     <div class="nav-item-container">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-bell"></i></a>
+                                <a class="nav-link active" aria-current="page" href="#"><i
+                                        class="fa-regular fa-bell"></i></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
@@ -113,19 +118,19 @@
                                 <div class="rate d-flex">
                                     <div class="rate__average">{{course.ratings}}</div>
                                     <div class="rate_stars d-flex">
-                                        <img src="../public/img/Star.png" alt="">
-                                        <img src="../public/img/Star.png" alt="">
-                                        <img src="../public/img/Star.png" alt="">
-                                        <img src="../public/img/Star.png" alt="">
-                                        <img src="../public/img/Star.png" alt="">
+                                        <img src=" /img/Star.png" alt="">
+                                        <img src=" /img/Star.png" alt="">
+                                        <img src=" /img/Star.png" alt="">
+                                        <img src=" /img/Star.png" alt="">
+                                        <img src=" /img/Star.png" alt="">
                                     </div>
                                     <div class="rate__number">(({{course.numberrating}}) ratings)</div>
                                     <div class="rate__student">{{course.numberstudent}} students</div>
                                 </div>
-                                <div class="black__author">Created by <span>{{course.author}}</spa></div>
+                                <div class="black__author">Created by <span>{{course.author}}</spa>
+                                </div>
                                 <div class="black__foot d-flex">
-                                    <div class="text">Last updated 9/2015</div>
-                                    <div class="text">English</div>
+                                    <div class="text">Last updated {{course.release_date}}</div>
                                     <div class="text">English</div>
                                 </div>
                             </div>
@@ -137,11 +142,8 @@
                                     <div class="preview__buy__btn">Buy now</div>
                                     <div class="preview__title">This course includes:</div>
                                     <ul class="preview__list">
-                                        <li class="preview__item">14 hours on-demand videos</li>
-                                        <li class="preview__item">14 hours on-demand videos</li>
-                                        <li class="preview__item">14 hours on-demand videos</li>
-                                        <li class="preview__item">14 hours on-demand videos</li>
-                                        <li class="preview__item">14 hours on-demand videos</li>
+                                        <li class="preview__item">{{course.duration}} hours on-demand videos</li>
+                                        <li class="preview__item">{{course.numberlessons}} sections</li>
                                     </ul>
                                 </div>
                             </div>
@@ -150,62 +152,30 @@
                             <div class="learn__title">What you'll learn</div>
                             <div class="learn__list">
                                 <div class="learn__item">
-                                    <img src="../public/img/Verify.svg" alt="" class="verify__img">
-                                    <div class="learn__text">Create their own Python Programs</div>
-                                </div>
-                                <div class="learn__item">
-                                    <img src="../public/img/Verify.svg" alt="" class="verify__img">
-                                    <div class="learn__text">Create their own Python Programs</div>
-                                </div>
-                                <div class="learn__item">
-                                    <img src="../public/img/Verify.svg" alt="" class="verify__img">
-                                    <div class="learn__text">Create their own Python Programs</div>
+                                    <img src=" /img/Verify.svg" alt="" class="verify__img">
+                                    <div class="learn__text">{{course.description}}</div>
                                 </div>
                             </div>
                         </div>
                         <div class="course">
                             <div class="course__title">Course content</div>
-                            <div class="course__des">15 sections • 146 lectures • 14h 42m total length</div>
                             <div class="course__list">
+                                {{#each lesson}}
                                 <div class="course__item">
-                                    <div class="course_header">Up and Running With Python</div>
+                                    <div class="course_header">{{title}}</div>
                                     <div class="course_body">
                                         <div class="d-flex justify-content-between">
-                                            <div class="course__left">Installing Python</div>
-                                            <div class="course__right">04:07</div>
+                                            <div class="course__left">Review videos</div>
+                                            <a href="{{link}}" class="course__right lesson-link">Watching</a>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <div class="course__left">Installing Python</div>
-                                            <div class="course__right">04:07</div>
+                                            <div class="course__left">Duration</div>
+                                            <div class="course__right">{{duration}}:00</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="course__item">
-                                    <div class="course_header">Up and Running With Python</div>
-                                    <div class="course_body">
-                                        <div class="d-flex justify-content-between">
-                                            <div class="course__left">Installing Python</div>
-                                            <div class="course__right">04:07</div>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="course__left">Installing Python</div>
-                                            <div class="course__right">04:07</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="course__item">
-                                    <div class="course_header">Up and Running With Python</div>
-                                    <div class="course_body">
-                                        <div class="d-flex justify-content-between">
-                                            <div class="course__left">Installing Python</div>
-                                            <div class="course__right">04:07</div>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                            <div class="course__left">Installing Python</div>
-                                            <div class="course__right">04:07</div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{/each}}
+
                                 <div class="more__btn">
                                     5 more sections
                                 </div>
@@ -218,21 +188,51 @@
                                 <li class="requirement__item">Macintosh (OSX)/ Windows(Vista and higher) Machine</li>
                             </ul>
                         </div>
-    
+
                     </div>
                 </div>
 
             </div>
+
+            {{!-- <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button> --}}
+
+            <!-- Modal -->
+            <div class="modal fade" id="lockModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Lesson is locked</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                           You can purchase this course to continue watching more lessons !
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
     </main>
     <footer>
         <!-- place footer here -->
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
@@ -255,6 +255,7 @@
             },
         });
     </script>
+    <script src="/js/detailCourse.js"></script>
 </body>
 
 </html>
