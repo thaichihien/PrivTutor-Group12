@@ -166,9 +166,6 @@ USING (course_id)
 GROUP BY c.course_id, t.teacher_id
 
 -- Counting --
-SElECT COUNT(student_id) AS numberrating, course_id
-FROM Review GROUP BY course_id
-
 SElECT COUNT(student_id) AS numberstudent, course_id
 FROM Course_Student GROUP BY course_id
 
