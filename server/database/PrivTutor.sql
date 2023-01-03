@@ -158,11 +158,11 @@ FROM Course_Student a JOIN Course c ON a.course_id = c.course_id JOIN Student s 
 WHERE a.comment IS NOT NULL
 
 -- Query for detail course --
-SElECT c.course_name AS coursetitle, c.description, c.rating AS ratings, c.price,
-COUNT(r.student_id) AS  numberrating, c.numberstudent,
+SElECT c.course_name AS title, c.description, c.rating AS ratings,
+COUNT(a.student_id) AS  numberrating, COUNT(a.course_id) AS numberstudent,
 t.full_name AS author, c.logoCourseURL AS courseimg, c.price
-FROM Teacher t JOIN Course c USING (teacher_id) JOIN Review r
-USING (course_id)
+FROM Teacher t JOIN Course c USING (teacher_id) JOIN Course_Student a
+USING (course_id) WHERE c.course_id = $1 AND a.rating IS NOT NULL
 GROUP BY c.course_id, t.teacher_id
 
 -- Counting --

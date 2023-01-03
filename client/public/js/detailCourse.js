@@ -1,9 +1,8 @@
-const lockModal = document.getElementById('lockModal')
 const lessonlinkList = document.querySelectorAll('.lesson-link')
 
 const addLockLesson = (e) => {
     e.preventDefault()
-    lockModal.show()
+    confirm('Buy course to unlock full lessons')
 }
 
 lessonlinkList.forEach(e => {

@@ -36,7 +36,7 @@ const getDetailCourse = async (id) => {
         // id là id của khóa học
         const sql = `SElECT c.course_name AS title, c.description, c.rating AS ratings,
         COUNT(a.student_id) AS  numberrating, COUNT(a.course_id) AS numberstudent,
-        t.full_name AS author, c.logoCourseURL AS courseimg, c.price
+        t.full_name AS author, c.logoCourseURL AS courseimg, c.price, c.release_date, c.duration
         FROM Teacher t JOIN Course c USING (teacher_id) JOIN Course_Student a
         USING (course_id) WHERE c.course_id = $1 AND a.rating IS NOT NULL
         GROUP BY c.course_id, t.teacher_id`;
@@ -44,7 +44,9 @@ const getDetailCourse = async (id) => {
         const value = [id];
         const data = await pool.query(sql, value)
         const course = data.rows[0]
-        
+        const count = await pool.query('SELECT COUNT(*) AS numberlessons FROM Lesson WHERE course_id = $1 GROUP BY course_id', value)
+        const numberlessons = count.rows[0]
+        course.numberlessons = numberlessons
 
         return course
 
@@ -56,24 +58,27 @@ const getDetailCourse = async (id) => {
 
 const getAllLessons = async (id) => {
     try {
-        
-        const lessonData = await pool.query()
+        const sql = 'SElECT lesson_name AS title, duration FROM Lesson  WHERE course_id = $1';
+        const value = [id];
+
+        const lessonData = await pool.query(sql, value)
         const lesson = lessonData.rows
         // lesson = {
         //     title,
         //     duration
         // }
 
+        console.log(lesson)
 
-        const linkLessonData = await pool.query()
+        const linkLessonData = await pool.query('SElECT link_lesson FROM Lesson WHERE course_id = $1', value)
         const linkLesson = linkLessonData.rows
 
-        lesson[0].link = linkLesson[0]
-        lesson[1].link = linkLesson[1]
+        console.log(linkLesson);
 
+        lesson[0].link = linkLesson[0].link_lesson
+        lesson[1].link = linkLesson[1].link_lesson
 
         return lesson
-
 
     } catch (error) {
         console.log(error.message)
