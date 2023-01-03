@@ -14,8 +14,21 @@ const renderIndex = async (req,res) => {
 
 }
 
+const renderDetailCourse = async(req,res) => {
+    try {
+        const {id} = req.params
+
+
+
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json(error.message)
+    }
+}
+
 
 
 module.exports = {
-    renderIndex
+    renderIndex,
+    renderDetailCourse
 }
