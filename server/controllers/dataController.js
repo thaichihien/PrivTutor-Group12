@@ -35,7 +35,7 @@ const getDetailCourse = async (id) => {
     try {
         // id là id của khóa học
         const course = await pool.query(
-            `SElECT c.course_name AS title, c.description, c.rating AS ratings,
+            `SElECT c.course_id, c.course_name AS title, c.description, c.rating AS ratings,
             COUNT(r.student_id) AS  numberrating, c.numberstudent,
             t.full_name AS author, c.logoCourseURL AS courseimg, c.price
             FROM Teacher t JOIN Course c USING (teacher_id) JOIN Review r
