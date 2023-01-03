@@ -34,7 +34,9 @@ const getAllReview = async() =>{
 const getDetailCourse = async (id) => {
     try {
         // id là id của khóa học
-        const course = await pool.query()
+        const course = await pool.query(
+            ``
+        )
 
         // course = {
         //     title,          tiêu đề

@@ -63,6 +63,13 @@ CREATE TABLE Course_Student
 (
     course_id VARCHAR(4) REFERENCES Course(course_id),
     student_id VARCHAR(4) REFERENCES Student(student_id),
+    PRIMARY KEY (course_id, student_id)
+);
+
+CREATE TABLE Review
+(
+    course_id VARCHAR(4) REFERENCES Course(course_id),
+    student_id VARCHAR(4) REFERENCES Student(student_id),
 	rating NUMERIC(2,1),
     comment TEXT,
     PRIMARY KEY (course_id, student_id)
@@ -141,17 +148,20 @@ VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLa
 ('Definition of Derivative', 6, 'https://youtu.be/qL2vr0Gi6e8','CAL1');
 
 
-INSERT INTO Course_Student (student_id, course_id, rating, comment)
+INSERT INTO Course_Student (student_id, course_id)
+VALUES('ST01','LOL1'), ('ST01','LOL2'),
+('ST02','PG22'), ('ST02','DCM1'), 
+('ST02','LOL2'), ('ST03','OP22'), 
+('ST03','DCM1'), ('ST03', 'CAL1');
+
+INSERT INTO Review (student_id, course_id, rating, comment)
 VALUES('ST01','LOL1',5.0,'5 star about the quality of the course'), 
 ('ST01','LOL2',4.9,'clear explaination, thanks a lot Mr.Ren'),
 ('ST02','PG22',4.0,'a little bit unclear about function lesson, too few exercises'), 
 ('ST02','DCM1',5.0,'10 marks for all sides'), 
-('ST02','LOL2', null,null),
 ('ST03','OP22',4.8,'Great course ever, thank you so much'), 
 ('ST03','DCM1', 4.5, 'a little bit confusion in some lesson'), 
 ('ST03', 'CAL1', 4.2, null);
-
-
 
 SELECT * FROM Student;
 SELECT * FROM Course;
@@ -168,6 +178,13 @@ FROM Teacher t JOIN Course c ON c.teacher_id = t.teacher_id
 SELECT a.comment, s.full_name AS author, c.course_name AS coursetitle
 FROM Course_Student a JOIN Course c ON a.course_id = c.course_id JOIN Student s ON s.student_id = a.student_id
 WHERE a.comment IS NOT NULL
+
+-- Query for detail course --
+SElECT c.course_name AS coursetitle, c.description, c.rating AS ratings, c.price,
+COUNT(a.student_id) AS  numberrating, t.full_name AS author, c.logoCourseURL AS courseimg, c.price
+FROM Teacher t JOIN Course c USING (teacher_id) JOIN Course_Student a USING (course_id)
+WHERE a.rating IS NOT NULL
+GROUP BY c.course_name, c.description, c.rating, c.price, t.full_name, c.logoCourseURL
 
 --DROP TABLE Student
 --DROP TABLE Teacher
