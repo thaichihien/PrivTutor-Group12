@@ -282,3 +282,167 @@ hr {
     color: black;
     font-weight: bold;
 }
+
+
+/* Student Discovery   */
+
+.student-discovery-tag-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.student-discovery-tag-row .tag {
+    padding: 0 10px;
+    background-color: lightgrey;
+    border-radius: 5px;
+}
+
+.student-discovery-tag-row .active {
+    background-color: white;
+}
+
+.student-main-container {
+    background-color: white;
+    padding: 30px 0;
+}
+
+.discovery-topic-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: lightgrey solid;
+}
+
+.student-main-container h1,
+.student-main-container h2 {
+    margin: 30px;
+}
+
+.topic-nav {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.topic-nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.topic-nav-active {
+    font-weight: bold;
+}
+
+.student-main-container hr {
+    margin: 0 30px;
+}
+
+
+/* Popular Topic */
+
+.popular-topic {
+    margin: 0 30px;
+}
+
+.popular-topic button {
+    width: 200px;
+    background-color: white;
+}
+
+#topic-slide {
+    display: flex;
+    flex-direction: column;
+}
+
+.topic-cards-container {
+    margin: 0 0 0 30px;
+}
+
+.popular-topic-card {
+    margin: 10px 0;
+}
+
+.popular-topic-card a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+
+/* Featured Course */
+
+.featured-course {
+    margin: 0 30px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.featured-course .featured-course-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.featured-course-image {
+    width: 50%;
+    margin-right: 10px;
+}
+
+.featured-course-image img {
+    width: 100%;
+}
+
+.featured-course-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.featured-course-description i {
+    font-size: 5px;
+    vertical-align: middle;
+}
+
+.featured-course-description .name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.featured-course-description .description {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.featured-course-description .author,
+.featured-course-description .date-line,
+.featured-course-description .infor {
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.featured-course-description .update-date {
+    font-weight: bold;
+}
+
+.featured-course-rating {
+    color: orange;
+    font-size: 15px;
+}
+
+.featured-course-rating .featured-rating {
+    font-weight: bold;
+}
+
+.trend-tag {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.featured-course-description .price {
+    font-size: 20px;
+    font-weight: bold;
+}
