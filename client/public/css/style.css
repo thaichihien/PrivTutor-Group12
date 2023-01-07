@@ -302,17 +302,15 @@ footer {
     
 }
 
+.student-main-container .black_title .course-title, .rating {
+    display: inline;
+}
+
 .student-main-container .black_title .course-title {
     font-size: 30px;
     margin-left: 60px;
     font-weight: bold;
-    display: inline;
 }
-
-.student-main-container .black_title .rating {
-    display: inline;
-}
-
 
 /* Course Comments */
 
