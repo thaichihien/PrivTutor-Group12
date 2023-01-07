@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Discovery</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+    <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/6ac12fa637.js" crossorigin="anonymous"></script>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/client/public/css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="/client/public/img/logo.png" alt="Logo">
+                    <span class="navbar-tittle">PrivTutor</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="search-bar">
+                        <form class="d-flex" role="search">
+                            <div class="search-bar">
+                                <input class="form-control me-2" type="search" placeholder="Search `ents, teachers, courses, etc..." aria-label="Search">
+                                <img src="/client/public/img/searchicon.svg" id="input_img">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="nav-item-container">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-bell"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <span class="avatar-container">
+                                        <img src="/client/public/img/logo.png" alt="" class="avatar">
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Hoàng Minh</a>
+                            </li>
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li> -->
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+
+                <div class="sidenav">
+                    <a href="#">
+                        <img src="/client/public/img/chart-line-solid.svg" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#" class="active-page">
+                        <img src="/client/public/img/graduation-cap-solid.svg" alt="">
+                        <span>Courses</span>
+                    </a>
+                    <a href="#">
+                        <img src="/client/public/img/users-solid.svg" alt="">
+                        <span>Find Mentor</span>
+                    </a>
+                    <a href="#">
+                        <img src="/client/public/img/clipboard-list-solid.svg" alt="">
+                        <span>Booking & Schedule</span>
+                    </a>
+
+
+                </div>
+
+                <div class="main-content">
+                    <div class="student-discovery-tag-row">
+                        <div class="tag active">My Courses</div>
+                        <div class="tag">Discovery</div>
+                    </div>
+                    <div class="student-main-container">
+                        <div class="black_bar">
+                            <ul id="black_menu_item">
+                                <button id = "active_item">All Courses</button>
+                                <button id = "item">My lists</button>
+                                <button id = "item">Favorite</button>
+                                <button id = "item">Done</button>
+                              </ul>
+                        </div>
+
+                        <div class="course_lists_wrapper">
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course_lists_wrapper">
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course_lists_wrapper">
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course_lists_wrapper">
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course_lists_wrapper">
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course_lists_wrapper">
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="course_lists_wrapper">
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+
+                            <div class="course_item_container card">
+                                <div class="image">
+                                    <img src="/client/public/img/logo.png" alt="">
+                                </div>
+
+                                <div class="content">
+                                    <div class="course-name">Learn Python: The complete Python Programming Course</div>
+                                    <div class="course-author">Avinash Jain, The Codex</div>
+                                    <!-- <hr class="progress-line-blank"> -->
+                                    <div class="progress-real"></div>
+                                    <div class="progress-blank"></div>
+                                    
+                                    <div class="detail">
+                                        <div class="progress-percent">20% complete</div>
+                                        <div class="leave-rating">
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star"></i></span>
+                                            <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="rating-detail">Leave a rating</div>  
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+
+            </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper1 = new Swiper(".mySwiper1", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        var swiper2 = new Swiper(".mySwiper2", {
+            slidesPerView: 5,
+            spaceBetween: 10,
+            slidesPerGroup: 5,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        var swiper3 = new Swiper(".mySwiper3", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+
+</html>
