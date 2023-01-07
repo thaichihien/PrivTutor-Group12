@@ -31,9 +31,26 @@ const renderDetailCourse = async(req,res) => {
     }
 }
 
+const renderDiscovery = async (req,res)=>{
+    try {
+        const course = await dataController.getAllCourse()
+        
+        const featuredcourse = await dataController.getDetailCourse()
+
+
+        res.render('StudentDiscovery',{course,featuredcourse})
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json(error.message)
+    }
+
+
+}
+
 
 
 module.exports = {
     renderIndex,
-    renderDetailCourse
+    renderDetailCourse,
+    renderDiscovery
 }

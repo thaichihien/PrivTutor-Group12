@@ -27,7 +27,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src=" /img/logo.png" alt="Logo">
                     <span class="navbar-tittle">PrivTutor</span>
                 </a>
@@ -89,11 +89,11 @@
             <div class="row flex-nowrap">
 
                 <div class="sidenav">
-                    <a class="active-page" href="#">
+                    <a class="active-page" href="/">
                         <img src=" /img/chart-line-solid.svg" alt="">
                         <span>Dashboard</span>
                     </a>
-                    <a href="#">
+                    <a href="/discovery">
                         <img src=" /img/graduation-cap-solid.svg" alt="">
                         <span>Courses</span>
                     </a>
@@ -166,7 +166,7 @@
                                     <div class="course_body">
                                         <div class="d-flex justify-content-between">
                                             <div class="course__left">Review videos</div>
-                                            <a href="{{link}}" class="course__right lesson-link">Watching</a>
+                                            <a href="{{link}}" target="_blank" class="course__right lesson-link">Watching</a>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <div class="course__left">Duration</div>
@@ -202,7 +202,7 @@
             <!-- Modal -->
             <div class="modal fade" id="lockModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Lesson is locked</h5>
