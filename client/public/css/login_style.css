@@ -1,0 +1,78 @@
+.right-nav {
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+}
+
+.right-nav-line {
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+
+.right-nav button {
+    width: 150px;
+    border-radius: 20px;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.Login {
+    margin: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    border-radius: 10%;
+}
+
+.account-type-line {
+    width: 300px;
+}
+
+.Login .account-type-form,
+.login-input-form {
+    width: 300px;
+}
+
+.Login button {
+    border-radius: 40px;
+}
+
+.Login input {
+    width: 300px;
+    margin: 5px 0;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.under-input {
+    width: 300px;
+    display: flex;
+}
+
+.signup-link {
+    margin: 0 10px;
+}
+
+.login-button {
+    width: 150px;
+}
+
+.other-login-method img {
+    width: 40px;
+    height: 40px;
+    margin: 10px 5px;
+}
+
+a {
+    text-decoration: none;
+}
