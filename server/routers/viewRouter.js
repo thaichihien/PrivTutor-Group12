@@ -3,6 +3,7 @@ const renderController = require('../controllers/renderController')
 
 
 // TODO render index
+router.get('/discovery',renderController.renderDiscovery)
 router.get('/course/:id',renderController.renderDetailCourse)
 router.get('/',renderController.renderIndex);
 

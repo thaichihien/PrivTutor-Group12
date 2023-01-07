@@ -68,12 +68,12 @@ const getAllLessons = async (id) => {
         //     duration
         // }
 
-        console.log(lesson)
+       
 
         const linkLessonData = await pool.query('SElECT link_lesson FROM Lesson WHERE course_id = $1', value)
         const linkLesson = linkLessonData.rows
 
-        console.log(linkLesson);
+       
 
         lesson[0].link = linkLesson[0].link_lesson
         lesson[1].link = linkLesson[1].link_lesson
@@ -89,12 +89,36 @@ const getAllLessons = async (id) => {
 
 }
 
+const getFeaturedCourse = async() => {
+    try {
+        const featuredcourse = await pool.query()
+
+        // featuredcourse = {
+        //     title,
+        //     description,
+        //     author,
+        //     releasedate,
+        //     duration,
+        //     numberlessons,
+        //     rating
+        // }
+       
+    
+            return featuredcourse.rows
+
+
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
 
 
 module.exports = {
     getAllCourse,
     getDetailCourse,
+    getFeaturedCourse,
     getAllReview,
     getAllLessons
 }

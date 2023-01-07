@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Dashboard</title>
+    <title>Discovery</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -83,11 +83,11 @@
             <div class="row flex-nowrap">
 
                 <div class="sidenav">
-                    <a class="active-page" href="/">
+                    <a href="/">
                         <img src=" /img/chart-line-solid.svg" alt="">
                         <span>Dashboard</span>
                     </a>
-                    <a href="/discovery">
+                    <a href="/discovery" class="active-page">
                         <img src=" /img/graduation-cap-solid.svg" alt="">
                         <span>Courses</span>
                     </a>
@@ -104,21 +104,36 @@
                 </div>
 
                 <div class="main-content">
-                    <div class="main-container">
-                        <h1 class="main-title">Learn in-demand professional skills</h1>
-                        <div class="tag-row">
-                            <a href="#">Python</a>
-                            <a href="#">Web development</a>
-                            <a href="#">JavaScript</a>
-                            <a href="#">C/C++</a>
-                            <a href="#">ReactJS</a>
-                            <a href="#">HTML/CSS</a>
+                    <div class="student-discovery-tag-row">
+                        <div class="tag">My Courses</div>
+                        <div class="tag active">Discovery</div>
+                    </div>
+                    <div class="student-main-container">
+                        <div class="discovery-topic-nav">
+                            <div class="topic">Development</div>
+                            <div class="topic">Web Development</div>
+                            <div class="topic">Data Science</div>
+                            <div class="topic">Mobile Development</div>
+                            <div class="topic">Programming Languages</div>
+                            <div class="topic">Game Development</div>
+                            <div class="more"><i class="fa-solid fa-ellipsis-vertical"></i></i>
+                            </div>
                         </div>
+
+                        <h1>Development Courses</h1>
+                        <h2>Courses to get you started</h2>
+                        <div class="topic-nav">
+                            <a href="" class="topic-nav-active">Most popular</a>
+                            <a href="">New</a>
+                            <a href="">Trending</a>
+                        </div>
+                        <hr>
                         <br>
+
                         <div class="recommend-course">
-                            <div class="swiper mySwiper slide-container">
+                            <div class="swiper mySwiper1 slide-container">
                                 <div class="swiper-wrapper card">
-                                    {{#each course}}
+                                   {{#each course}}
                                         <div class="swiper-slide">
                                         <div class=" card-container">
                                             <a href="/course/{{course_id}}" class="image">
@@ -194,126 +209,135 @@
                                 <div class="swiper-pagination"></div>
                             </div>
                         </div>
-
                         <br>
 
-                        <div class="course-comment">
-                            <h2>How learners like you are achieving their goal</h2>
-                            <div class="swiper mySwiper comment-slide-container">
-                                <div class="swiper-wrapper comment-card-container">
-                                    {{#each review}}
-                                       <div class="swiper-slide">
-                                        <div class="comment-card">
-                                            <div class="double-quotes-icon"><i class="fa-sharp fa-solid fa-quote-left"></i></div>
-                                            <div class="comments">{{comment}}.</div>
-                                            <br>
-                                            <div class="comment-author">
-                                                <img src=" /img/logo.png" class="author-avatar">
-                                                <span class="author-name">{{author}}</span>
+                        <h2>Featured Course</h2>
+                        <div class="featured-course">
+                            <div class="swiper mySwiper3 featured-slide-container">
+                                <div class="swiper-wrapper featured-cards-container">
+                                    {{#each featuredcourse}}
+                                       <div class="swiper-slide" id="featured-slide">
+                                        <div class="featured-course-card">
+                                            <div class="featured-course-image">
+                                                <img src=" /img/anime-blender-course.png" alt="">
                                             </div>
-                                            <hr>
-                                            <div class="course-link">
-                                                <div class="icon"><i class="fa-solid fa-circle-play"></i></div>
-                                                <a href="#" class="link">{{coursetitle}}</a>
+                                            <div class="featured-course-description">
+                                                <div>
+                                                    <span class="name">{{title}}</span>
+                                                    <br>
+                                                    <span class="description">{{description}}</span>
+                                                    <br>
+                                                    <span class="author">By {{author}}</span>
+                                                    <br>
+                                                    <span class="date-line">Updated <span class="update-date">{{releasedate}}</span></span>
+                                                    <span class="infor">{{duration}} total hours</span>
+                                                    <span class="infor"><i class="fa-sharp fa-solid fa-circle"></i> {{numberlessons}} lectures</span>
+                                                    <span class="infor"><i class="fa-sharp fa-solid fa-circle"></i> Intermediate</span>
+                                                    <div class="featured-course-rating">
+                                                        <span class="featured-rating">{{rating}}</span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star"></i></span>
+                                                        <span><i class="fa-solid fa-star-half-stroke"></i></span>
+                                                        <span class="number-rating">(40)</span>
+                                                        <span class="trend-tag">Hot & New</span>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <span class="price">đ{{price}}</span>
+                                                    <s class="old-price">đ1,699,000</s>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     {{/each}}
-                                    {{!-- <div class="swiper-slide">
-                                        <div class="comment-card">
-                                            <div class="double-quotes-icon"><i class="fa-sharp fa-solid fa-quote-left"></i></div>
-                                            <div class="comments">I am proud to say that after a few months of taking this course... I passed my exam and am now an AWS Certified Cloud Practitioner! This content was exactly what the CCP exam covered.</div>
-                                            <br>
-                                            <div class="comment-author">
-                                                <img src=" /img/logo.png" class="author-avatar">
-                                                <span class="author-name">Will A</span>
-                                            </div>
-                                            <hr>
-                                            <div class="course-link">
-                                                <div class="icon"><i class="fa-solid fa-circle-play"></i></div>
-                                                <a href="#" class="link">[New] Ultimate AWS Certified Cloud Practioner - 2022</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="comment-card">
-                                            <div class="double-quotes-icon"><i class="fa-sharp fa-solid fa-quote-left"></i></div>
-                                            <div class="comments">I am proud to say that after a few months of taking this course... I passed my exam and am now an AWS Certified Cloud Practitioner! This content was exactly what the CCP exam covered.</div>
-                                            <br>
-                                            <div class="comment-author">
-                                                <img src=" /img/logo.png" class="author-avatar">
-                                                <span class="author-name">Will A</span>
-                                            </div>
-                                            <hr>
-                                            <div class="course-link">
-                                                <div class="icon"><i class="fa-solid fa-circle-play"></i></div>
-                                                <a href="#" class="link">[New] Ultimate AWS Certified Cloud Practioner - 2022</a>
-                                            </div>
-                                        </div>
-                                    </div> --}}
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
                                 <div class="swiper-pagination"></div>
                             </div>
-
                         </div>
-
                         <br>
 
-                        <div class="featured-topic">
-                            <h2>Featured topics by category</h2>
-                            <div class="topic-container">
-                                <div class="topic">
-                                    <div class="topic-title">Development</div>
-                                    <br>
-                                    <a href="#">Python</a>
-                                    <div class="student-number">36,354,994 students</div>
-                                    <a href="#">Web development</a>
-                                    <div class="student-number">11,415,615 students</div>
-                                    <a href="#">Machine Learning</a>
-                                    <div class="student-number">7,070,015 students</div>
+                        <h2>Popular Topic</h2>
+                        <div class="popular-topic">
+                            <div class="swiper mySwiper2 topic-slide-container">
+                                <div class="swiper-wrapper topic-cards-container">
+                                    <div class="swiper-slide" id="topic-slide">
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">Python</a></button>
+                                            </form>
+                                        </div>
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">Web</a></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" id="topic-slide">
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">Python</a></button>
+                                            </form>
+                                        </div>
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">WEb</a></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" id="topic-slide">
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">Python</a></button>
+                                            </form>
+                                        </div>
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">WEb</a></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" id="topic-slide">
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">Python</a></button>
+                                            </form>
+                                        </div>
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">WEb</a></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide" id="topic-slide">
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">Python</a></button>
+                                            </form>
+                                        </div>
+                                        <div class="popular-topic-card">
+                                            <form>
+                                                <button><a href="">WEb</a></button>
+                                            </form>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="topic">
-                                    <div class="topic-title">Business</div>
-                                    <br>
-                                    <a href="#">Financial Analysis</a>
-                                    <div class="student-number">1,195,282 students</div>
-                                    <a href="#">SQL</a>
-                                    <div class="student-number">5,977,561 students</div>
-                                    <a href="#">PMP</a>
-                                    <div class="student-number">1,733,396 students</div>
-                                </div>
-                                <div class="topic">
-                                    <div class="topic-title">IT and Software</div>
-                                    <br>
-                                    <a href="#">AWS Certification</a>
-                                    <div class="student-number">6,078,244 students</div>
-                                    <a href="#">Ethical Hacking</a>
-                                    <div class="student-number">19,931,066 students</div>
-                                    <a href="#">Cyber Security</a>
-                                    <div class="student-number">3,996,037 students</div>
-                                </div>
-                                <div class="topic">
-                                    <div class="topic-title">Design</div>
-                                    <br>
-                                    <a href="#">Photoshop</a>
-                                    <div class="student-number">10,909,736 students</div>
-                                    <a href="#">Graphic Design</a>
-                                    <div class="student-number">3,381,052 students</div>
-                                    <a href="#">Drawing</a>
-                                    <div class="student-number">2,410,849 students</div>
-                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-pagination"></div>
                             </div>
-                            <br>
-                            <form class="topic-button">
-                                <button><a href="#">Explore more topics</a></button>
-                            </form>
                         </div>
 
-                        <br>
-
+                        <h2>All Development courses</h2>
+                        <div class="not-sure-block">
+                            <span><i class="fa-solid fa-circle-info"></i></span>
+                        </div>
                     </div>
+
                 </div>
 
             </div>
@@ -333,10 +357,41 @@
 
     <!-- Initialize Swiper -->
     <script>
-        var swiper = new Swiper(".mySwiper", {
+        var swiper1 = new Swiper(".mySwiper1", {
             slidesPerView: 3,
             spaceBetween: 30,
             slidesPerGroup: 3,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        var swiper2 = new Swiper(".mySwiper2", {
+            slidesPerView: 5,
+            spaceBetween: 10,
+            slidesPerGroup: 5,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        var swiper3 = new Swiper(".mySwiper3", {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
             loop: true,
             loopFillGroupWithBlank: true,
             pagination: {
