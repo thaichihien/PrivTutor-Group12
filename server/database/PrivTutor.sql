@@ -60,6 +60,7 @@ CREATE TABLE Course_Student
     comment TEXT,
     PRIMARY KEY (course_id, student_id)
 );
+
 INSERT INTO Student (student_id, username, acc_password, full_name, date_of_birth, email, balance) VALUES 
 ('ST01','Ricon', 'A7@siuu', 'Tran Nam Do', '2005-08-29','ridocon23@gmail.com',550000),
 ('ST02','KingStone', 'gatcha24/7', 'Ly Nhat Nam', '2003-11-15','nhatnam15@gmail.com',849000),
@@ -71,9 +72,9 @@ INSERT INTO Teacher (teacher_id, username, acc_password, full_name, date_of_birt
 ('TT03','Thoconbebong', 'Stella@1208', 'Tran Mai Thanh Thuy', '1989-04-04','mtthuy89@gmail.com', 'PHD. in Math', '0932958648');
 
 INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, logoCourseURL, description, teacher_id) VALUES 
-('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', 'https://drive.google.com/uc?export=view&id=1Ln9yp1H5uFAttg3eex834mivGWJ0bP7G', 
+('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', 'https://drive.google.com/uc?export=view&id=1u6bbnnENbIc_MiZgqPKJNxyKqLJ8zAyk', 
  'Learn to program with one of the most powerful programming languages that exists today with the modern C++','TT01'),
-('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'https://drive.google.com/uc?export=view&id=1u6bbnnENbIc_MiZgqPKJNxyKqLJ8zAyk',
+('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'https://drive.google.com/uc?export=view&id=1Ln9yp1H5uFAttg3eex834mivGWJ0bP7G',
  'Learn Java In This Course And Master The Art Of OOP Programming And Patterns','TT01'),
 ('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'https://drive.google.com/uc?export=view&id=1H-DYlYFcl5J7GFNkygd8JBV-bKCRP3Us', 
  'Most basic course for League newbies with detailed explainations about game mechanics and champion power spikes','TT02'),
@@ -175,4 +176,3 @@ FROM Course_Student GROUP BY course_id
 --DROP TABLE Course
 --DROP TABLE Lesson
 --DROP TABLE Course_Student
---DROP TABLE Review
