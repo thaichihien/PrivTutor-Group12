@@ -1,12 +1,24 @@
 const dataController = require('./dataController')
+const accountController = require('../controllers/accountController')
 
 const renderIndex = async (req,res) => {
     try {
+
+        const id = req.user
+
+        let user = {
+            fullname : ""
+        }
+        if(id){
+            const data  = await accountController.getAnAccount(id)
+            user = data
+        }
+
         const course = await dataController.getAllCourse()
 
         const review = await dataController.getAllReview()
 
-        res.render('index',{course,review})
+        res.render('index',{course,review,user})
     } catch (error) {
         console.log(error.message)
         res.status(500).json(error.message)

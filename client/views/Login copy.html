@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Register</title>
+    <title>Login</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,10 +32,10 @@
                 </a>
             </div>
             <div class="right-nav">
-                <div class="right-nav-line">Have an account already?</div>
+                <div class="right-nav-line">Don't have an account yet?</div>
                 <form action="">
                     <button>
-                        <a href="">Sign in</a>
+                        <a href="">Sign up</a>
                     </button>
                 </form>
             </div>
@@ -44,28 +44,31 @@
 
     <main>
         <div class="login-container">
-            <div class="Login">
-                <div class="title-line-1">Let's get to</div>
-                <div class="title-line-2">know you!</div>
+            <form class="Login">
+                <h1 class="title-line-1">Welcome to</h1>
+                <h2 class="title-line-2">PrivTutor</h2>
                 <div class="account-type-line">Account type:</div>
-                <form class="account-type-form" action="">
+                <div class="account-type-form" action="">
                     <button id="active">Student</button>
                     <button id="inactive">Mentor</button>
-                </form>
-                <form class="login-input-form" action="">
-                    <input type="text" placeholder="Username">
-                    <input type="text" placeholder="Email">
-                    <input type="text" placeholder="Password">
-                    <input type="text" placeholder="Re-confirm password">
-                </form>
-                <div class="under-input">
-                    <div>Already have an account?</div>
-                    <a class="signup-link" href="">Sign in</a>
                 </div>
-                <form class="login-button-form" action="">
-                    <button class="login-button">Sign up</button>
-                </form>
-            </div>
+                <div class="login-input-form" action="">
+                    <input type="text" placeholder="username" required>
+                    <input type="password" placeholder="password" required>
+                </div>
+                <div class="under-input">
+                    <div>Forgot your password? </div>
+                    <a class="signup-link" href="">Sign up</a>
+                </div>
+                <div class="login-button-form" action="">
+                    <button class="login-button">Login</button>
+                </div>
+                <div>or</div>
+                <div class="other-login-method">
+                    <a href=""><img src="/client/public/img/facebook.png" alt=""></a>
+                    <a href=""><img src="/client/public/img/google.png" alt=""></a>
+                </div>
+            </form>
         </div>
 
     </main>
