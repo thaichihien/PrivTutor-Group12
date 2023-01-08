@@ -45,7 +45,7 @@ const getDetailCourse = async (id) => {
         const data = await pool.query(sql, value)
         const course = data.rows[0]
         const count = await pool.query('SELECT COUNT(*) AS numberlessons FROM Lesson WHERE course_id = $1 GROUP BY course_id', value)
-        const numberlessons = count.rows[0]
+        const numberlessons = count.rows[0].numberlessons
         course.numberlessons = numberlessons
 
         return course
@@ -91,7 +91,14 @@ const getAllLessons = async (id) => {
 
 const getFeaturedCourse = async() => {
     try {
-        const featuredcourse = await pool.query()
+        const featuredcourse = await pool.query(
+            `SELECT c.course_name AS title, c.description, t.full_name AS author, c.release_date, c.duration,
+            COUNT(*) AS numberlessons, c.rating
+            FROM Course c JOIN Lesson l USING (course_id) JOIN Teacher t USING (teacher_id)
+            GROUP BY c.course_id, t.teacher_id`
+        )
+
+        console.log(featuredcourse)
 
         // featuredcourse = {
         //     title,
@@ -104,7 +111,7 @@ const getFeaturedCourse = async() => {
         // }
        
     
-            return featuredcourse.rows
+        return featuredcourse.rows
 
 
 
