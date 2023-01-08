@@ -47,10 +47,23 @@ const renderDiscovery = async (req,res)=>{
 
 }
 
+const renderMyCourse = async (req,res) => {
+    try {
+        const mycourse = null
+
+        res.render('My_Course',{mycourse})
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json(error.message)
+    }
+
+}
+
 
 
 module.exports = {
     renderIndex,
     renderDetailCourse,
-    renderDiscovery
+    renderDiscovery,
+    renderMyCourse
 }
