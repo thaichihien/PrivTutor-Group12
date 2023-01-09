@@ -22,7 +22,7 @@ router.post("/register", async (req, res) => {
       const newUser = await accountDataController.createNewAccount(fullname,email,bcryptPassword)
   
   
-      const token = jwtGenerator.jwtGenerator(newUser.student_id)
+      const token = jwtGenerator(newUser.student_id)
       req.session.token = token
       res.redirect('/')
   

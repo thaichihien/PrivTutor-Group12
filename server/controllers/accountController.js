@@ -9,12 +9,13 @@ const createNewAccount = async (fullname,email,password) => {
         // data bắt buộc phải có student_id
         const res = await pool.query('SELECT * FROM Student')
         const newid = res.rowCount + 1
+        const id = 'ST'+ newid.toString()
+        console.log(id)
         const sql = `INSERT INTO Student (student_id, acc_password, full_name, date_of_birth, email, balance) VALUES
         ($1, $2, $3,'2023-01-01', $4, 0) 
         RETURNING student_id, acc_password AS password, full_name AS fullname, date_of_birth, balance`
-        const value = [newid, password, fullname, email]
+        const value = [id, password.toString(), fullname.toString(), email.toString()]
         const newAccount = await pool.query(sql, value)
-
 
         return newAccount.rows[0]
 
@@ -50,7 +51,7 @@ const getAnAccountByEmail = async (email) => {
         // Tìm tài khoản dựa vào email
         const sql = `SElECT student_id, acc_password AS password, full_name AS fullname, date_of_birth, balance 
         FROM Student WHERE email = $1`;
-        const value = [email];
+        const value = [email.toString()];
         const account = await pool.query(sql,value)
 
 

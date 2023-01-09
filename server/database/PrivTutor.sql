@@ -12,9 +12,9 @@ CREATE DATABASE PrivTutor_db
 
 CREATE TABLE Student
 (
-    student_id VARCHAR(4) PRIMARY KEY,
+    student_id VARCHAR PRIMARY KEY,
 
-    acc_password VARCHAR(15),
+    acc_password VARCHAR,
     full_name VARCHAR(100),
     date_of_birth DATE,
     email VARCHAR(35) UNIQUE,
@@ -22,9 +22,9 @@ CREATE TABLE Student
 );
 CREATE TABLE Teacher
 (
-    teacher_id VARCHAR(4) PRIMARY KEY,
+    teacher_id VARCHAR PRIMARY KEY,
 
-    acc_password VARCHAR(15),
+    acc_password VARCHAR,
     full_name VARCHAR(100),
     date_of_birth DATE,
     email VARCHAR(35) UNIQUE,
