@@ -18,65 +18,11 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/client/public/css/style.css">
+    <link rel="stylesheet" href=" /css/style.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="/client/public/img/logo.png" alt="Logo">
-                    <span class="navbar-tittle">PrivTutor</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="search-bar">
-                        <form class="d-flex" role="search">
-                            <div class="search-bar">
-                                <input class="form-control me-2" type="search" placeholder="Search `ents, teachers, courses, etc..." aria-label="Search">
-                                <img src="/client/public/img/searchicon.svg" id="input_img">
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="nav-item-container">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-bell"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="avatar-container">
-                                        <img src="/client/public/img/logo.png" alt="" class="avatar">
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Hoàng Minh</a>
-                            </li>
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li> -->
-                        </ul>
-                    </div>
-
-
-                </div>
-            </div>
-        </nav>
-    </header>
+    {{>header name=user.fullname money=user.balance}}
 
     <main>
         <div class="container-fluid">
@@ -84,19 +30,19 @@
 
                 <div class="sidenav">
                     <a href="#">
-                        <img src="/client/public/img/chart-line-solid.svg" alt="">
+                        <img src=" /img/chart-line-solid.svg" alt="">
                         <span>Dashboard</span>
                     </a>
                     <a href="#" class="active-page">
-                        <img src="/client/public/img/graduation-cap-solid.svg" alt="">
+                        <img src=" /img/graduation-cap-solid.svg" alt="">
                         <span>Courses</span>
                     </a>
                     <a href="#">
-                        <img src="/client/public/img/users-solid.svg" alt="">
+                        <img src=" /img/users-solid.svg" alt="">
                         <span>Find Mentor</span>
                     </a>
                     <a href="#">
-                        <img src="/client/public/img/clipboard-list-solid.svg" alt="">
+                        <img src=" /img/clipboard-list-solid.svg" alt="">
                         <span>Booking & Schedule</span>
                     </a>
 
@@ -116,13 +62,13 @@
                                 <div class="separator"></div>
 
                                 <div class="item_in_cart">
-                                    <img style="width: 10rem;" src="/client/public/img/Course_preview.svg" alt="" class="item_img">
+                                    <img style="width: 10rem;" src=" /img/Course_preview.svg" alt="" class="item_img">
                                     <div class="item_detail">
                                         <div class="col_1">
-                                            <p class="item_name" style="font-size: 1rem;"> 2022 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                            <div class="item_author" style="font-size: 1rem;">By Jose Portilla</div>
+                                            <p class="item_name" style="font-size: 1rem;"> {{course.title}}</p>
+                                            <div class="item_author" style="font-size: 1rem;">By {{course.author}}</div>
                                             <div class="row_1_2">
-                                                <div class="rating_number">4.8</div>
+                                                <div class="rating_number">{{course.ratings}}</div>
                                                 <div class="rate_stars d-flex">
                                                     <img src="../public/img/Star.png" alt="">
                                                     <img src="../public/img/Star.png" alt="">
@@ -130,9 +76,9 @@
                                                     <img src="../public/img/Star.png" alt="">
                                                     <img src="../public/img/Star.png" alt="">
                                                 </div>
-                                                <div class="rating_people">(445,547 ratings)</div>
+                                                <div class="rating_people">({{course.numberrating}} ratings)</div>
                                             </div>
-                                            <div class="item_length">22 total hours • 155 lectures • All Levels</div>
+                                            <div class="item_length">{{course.duration}} total hours • {{course.numberlessons}} lectures • All Levels</div>
                                         </div>
                                         
                                         <div class="col_2">
@@ -141,8 +87,8 @@
                                         </div>
                                         
                                         <div class="col_3">
-                                            <div class="item_price">đ549,000</div>
-                                            <div class="original_price">đ2,499,000</div>
+                                            <div class="item_price">đ{{course.price}}</div>
+                                            {{!-- <div class="original_price">đ2,499,000</div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -153,13 +99,13 @@
                                 <div class="separator"></div>
 
                                 <div class="item_in_cart">
-                                    <img src="/client/public/img/Course_preview.svg" alt="" class="item_img">
+                                    <img src=" /img/Course_preview.svg" alt="" class="item_img">
                                     <div class="item_detail">
                                         <div class="col_1">
-                                            <p class="item_name"> 2022 Complete Python Bootcamp From Zero to Hero in Python</p>
-                                            <div class="item_author">By Jose Portilla</div>
+                                            <p class="item_name"> {{course.title}}</p>
+                                            <div class="item_author">By  {{course.author}}</div>
                                             <div class="row_1_2">
-                                                <div class="rating_number">4.8</div>
+                                                <div class="rating_number">{{course.ratings}}</div>
                                                 <div class="rate_stars d-flex">
                                                     <img src="../public/img/Star.png" alt="">
                                                     <img src="../public/img/Star.png" alt="">
@@ -167,9 +113,9 @@
                                                     <img src="../public/img/Star.png" alt="">
                                                     <img src="../public/img/Star.png" alt="">
                                                 </div>
-                                                <div class="rating_people">(445,547 ratings)</div>
+                                                <div class="rating_people">({{course.numberrating}} ratings)</div>
                                             </div>
-                                            <div class="item_length">22 total hours • 155 lectures • All Levels</div>
+                                            <div class="item_length">{{course.duration}} total hours • {{course.numberlessons}} lectures • All Levels</div>
                                         </div>
                                         
                                         <div class="col_2">
@@ -178,8 +124,8 @@
                                         </div>
                                         
                                         <div class="col_3">
-                                            <div class="item_price">đ549,000</div>
-                                            <div class="original_price">đ2,499,000</div>
+                                            <div class="item_price">đ{{course.price}}</div>
+                                            {{!-- <div class="original_price">đ2,499,000</div> --}}
                                         </div>
                                         
                                         
@@ -191,13 +137,13 @@
                             </div>
                             
                             <div class="price">
-                                <!-- <img src="/client/public/img/Course_preview.svg" alt="" class="preview__img"> -->
+                                <!-- <img src=" /img/Course_preview.svg" alt="" class="preview__img"> -->
                                 <div class="price_body">
                                     <h1 class="total_header">Total</h1>
-                                    <div class="total_price">đ549,000</div>
-                                    <div class="original_price">đ2,499,000</div>
-                                    <div class="sale_off">72% off</div>
-                                    <div class="buy_button">Check out</div>
+                                    <div class="total_price">đ{{course.price}}</div>
+                                    {{!-- <div class="original_price">đ2,499,000</div>
+                                    <div class="sale_off">72% off</div> --}}
+                                    <div id="buy-btn" class="buy_button">Check out</div>
                                     
                                 </div>
 
@@ -212,6 +158,29 @@
 
             </div>
     </main>
+
+     <!-- Modal -->
+        <div class="modal fade" id="success-modal" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Mua khóa học thành công</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div id="modal-content" class="modal-body">
+                       Cảm ơn bạn đã mua khóa học này, hãy quay lại trang my course để kiểm tra !
+                    </div>
+                    <div class="modal-footer">
+                        <a href="/mycourse" type="button" class="btn btn-success" id="close-btn" >Quay về my course</a>
+                        <a href="/" class="btn btn-info">Quay về trang chủ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer>
         <!-- place footer here -->
     </footer>
@@ -274,6 +243,8 @@
             },
         });
     </script>
+   <script src="/js/authorization.js"></script>
+    <script src="/js/buyCourse.js"></script>
 </body>
 
 </html>

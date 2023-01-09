@@ -34,6 +34,7 @@ const getAllReview = async() =>{
 const getDetailCourse = async (id) => {
     try {
         // id là id của khóa học
+        // bổ sung lấy courseid as id
         const sql = `SElECT c.course_name AS title, c.description, c.rating AS ratings,
         COUNT(a.student_id) AS  numberrating, COUNT(a.course_id) AS numberstudent,
         t.full_name AS author, c.logoCourseURL AS courseimg, c.price, c.release_date, c.duration

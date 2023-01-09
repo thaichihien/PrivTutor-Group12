@@ -7,7 +7,8 @@ const renderIndex = async (req,res) => {
         const id = req.user
 
         let user = {
-            fullname : ""
+            fullname : "",
+            balance :''
         }
         if(id){
             const data  = await accountController.getAnAccount(id)
@@ -28,14 +29,25 @@ const renderIndex = async (req,res) => {
 
 const renderDetailCourse = async(req,res) => {
     try {
-        const {id} = req.params
+        const courseID= req.query.id
 
-        const course = await dataController.getDetailCourse(id)
+        const id = req.user
+
+        let user = {
+            fullname : "",
+            balance :''
+        }
+        if(id){
+            const data  = await accountController.getAnAccount(id)
+            user = data
+        }
+
+        const course = await dataController.getDetailCourse(courseID)
         
-        const lesson = await dataController.getAllLessons(id)
+        const lesson = await dataController.getAllLessons(courseID)
 
 
-        res.render('Student_item_detail',{course,lesson})
+        res.render('Student_item_detail',{course,lesson,user})
 
     } catch (error) {
         console.log(error.message)
@@ -48,7 +60,8 @@ const renderDiscovery = async (req,res)=>{
         const id = req.user
 
         let user = {
-            fullname : ""
+            fullname : "",
+            balance :''
         }
         if(id){
             const data  = await accountController.getAnAccount(id)
@@ -56,7 +69,7 @@ const renderDiscovery = async (req,res)=>{
         }
         const course = await dataController.getAllCourse()
         
-        const featuredcourse = await dataController.getDetailCourse()
+        const featuredcourse = await dataController.getFeaturedCourse()
 
 
         res.render('StudentDiscovery',{course,featuredcourse,user})
@@ -73,7 +86,8 @@ const renderMyCourse = async (req,res) => {
         const id = req.user
 
         let user = {
-            fullname : ""
+            fullname : "",
+            balance :''
         }
         if(id){
             const data  = await accountController.getAnAccount(id)
@@ -90,11 +104,37 @@ const renderMyCourse = async (req,res) => {
 
 }
 
+const renderCart =async (req,res) => {
+    try {
+        const courseID = req.query.id
+
+        const id = req.user
+
+        let user = {
+            fullname : "",
+            balance :''
+        }
+        if(id){
+            const data  = await accountController.getAnAccount(id)
+            user = data
+        }
+        const course = await dataController.getDetailCourse(courseID)
+
+
+        res.render('Shopping_Cart',{course,user})
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).json(error.message + " at renderCart")
+    }
+
+}
+
 
 
 module.exports = {
     renderIndex,
     renderDetailCourse,
     renderDiscovery,
-    renderMyCourse
+    renderMyCourse,
+    renderCart
 }
