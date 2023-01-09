@@ -121,7 +121,11 @@ const getFeaturedCourse = async() => {
 const getAllMyCourse = async(id) =>{
     try {
         // Tìm tất cả khóa học đã mua của một tài khoản với id
-        const course = await pool.query()
+        const sql = `SELECT c.course_name AS title, c.logoCourseURL AS image, t.full_name AS author, cs.progress
+        FROM Course_Student cs JOIN Course c USING (course_id) JOIN Teacher t USING (teacher_id)
+        WHERE cs.student_id = $1`
+        const value = [id]
+        const course = await pool.query(sql,value)
 
         // course = {
         //     image,

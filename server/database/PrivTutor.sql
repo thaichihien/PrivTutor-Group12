@@ -55,9 +55,10 @@ CREATE TABLE Lesson
 CREATE TABLE Course_Student
 (
     course_id VARCHAR(4) REFERENCES Course(course_id),
-    student_id VARCHAR(4) REFERENCES Student(student_id),
+    student_id VARCHAR REFERENCES Student(student_id),
 	rating NUMERIC(2,1),
     comment TEXT,
+    progress INT,
     PRIMARY KEY (course_id, student_id)
 );
 
@@ -132,7 +133,7 @@ VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLa
 ('Continuity Law', 14, 'https://youtu.be/V1mRyKQcaRo','CAL1'),
 ('Definition of Derivative', 6, 'https://youtu.be/qL2vr0Gi6e8','CAL1');
 
-INSERT INTO Course_Student (student_id, course_id, rating, comment)
+INSERT INTO Course_Student (student_id, course_id, rating, comment, progress)
 VALUES('ST1','LOL1',5.0,'5 star about the quality of the course'), 
 ('ST1','LOL2',4.9,'clear explaination, thanks a lot Mr.Ren'),
 ('ST2','PG22',4.0,'a little bit unclear about function lesson, too few exercises'), 
