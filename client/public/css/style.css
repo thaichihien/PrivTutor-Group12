@@ -66,7 +66,7 @@ footer {
 }
 
 .sidenav {
-    height: max-height;
+    min-height: 1000px;
     width: 20%;
     z-index: 1;
     top: 0;
@@ -255,7 +255,7 @@ footer {
     /* display: inline-block; */
     border-bottom: #A435F0 1px solid;
     width: 20%;
-    margin: 10px 0px 0px ;
+    margin: 10px 0px 0px;
 }
 
 .course_item_container .content .progress-blank {
@@ -270,7 +270,6 @@ footer {
     display: inline-flex;
     float: left;
     /* margin-right: 0px; */
-
 }
 
 .course_item_container .content .detail .leave-rating {
@@ -282,7 +281,6 @@ footer {
 
 .course_item_container .content .detail {
     display: inline;
-    
 }
 
 .course_item_container .content .rating-detail {
@@ -294,15 +292,15 @@ footer {
 
 .student-main-container .black_title {
     width: 100%;
-    height:auto;
-    background:black;
+    height: auto;
+    background: black;
     padding-top: 10px;
     padding-bottom: 10px;
     color: white;
-    
 }
 
-.student-main-container .black_title .course-title, .rating {
+.student-main-container .black_title .course-title,
+.rating {
     display: inline;
 }
 
@@ -311,6 +309,7 @@ footer {
     margin-left: 60px;
     font-weight: bold;
 }
+
 
 /* Course Comments */
 
@@ -373,7 +372,7 @@ hr {
 
 
 /* Featured Topics */
-student-main-container
+
 .featured-topic {
     background-color: #D7C9E4;
     padding: 30px;
@@ -409,7 +408,6 @@ student-main-container
     display: flex;
     flex-direction: row;
     margin-top: 20px;
-    
 }
 
 .student-discovery-tag-row .tag {
@@ -435,8 +433,7 @@ student-main-container
     margin-bottom: 30px;
 }
 
-cart-main-container
-.featured-topic {
+.cart-main-container .featured-topic {
     background-color: #D7C9E4;
     padding: 30px;
 }
@@ -462,7 +459,6 @@ cart-main-container
 }
 
 .cart-main-container .cart_menu_body .cart_detail hr {
-    
     /* padding-right: 400px; */
 }
 
@@ -487,14 +483,17 @@ cart-main-container
 
 .cart-main-container .preview__img {
     width: 100%;
-  }
+}
+
 .cart-main-container .preview__body {
     padding: 8px;
-  }
-  .preview__price {
+}
+
+.preview__price {
     font-size: 40px;
     font-weight: 700;
-  }
+}
+
 .cart-main-container .preview__add__btn {
     background-color: #a435f0;
     color: #fff;
@@ -504,7 +503,8 @@ cart-main-container
     font-weight: 600;
     margin-bottom: 8px;
     cursor: pointer;
-  }
+}
+
 .cart-main-container .preview__buy__btn {
     font-size: 20px;
     text-align: center;
@@ -513,39 +513,36 @@ cart-main-container
     margin-bottom: 8px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     cursor: pointer;
-  }
+}
+
 .cart-main-container .preview__title {
     font-weight: 700;
-  }
+}
+
 .cart-main-container .preview__list {
     font-size: 14px;
-  }
-.cart-main-container .preview__item {
-  }
-  
+}
 
-
+.cart-main-container .preview__item {}
 
 .black_bar {
     width: 100%;
-    height:50px;
-    background:black;
+    height: 50px;
+    background: black;
     padding-top: 20px;
     /* display:inline;  */
 }
 
 #black_menu_item li {
-    
-    display:inline;
+    display: inline;
     margin: 20px;
-    
 }
 
-#black_menu_item :hover{
+#black_menu_item :hover {
     cursor: pointer;
 }
 
-#black_menu_item :active{
+#black_menu_item :active {
     cursor: pointer;
     color: white;
     border-bottom: 2px solid white;
@@ -561,8 +558,6 @@ cart-main-container
     background-color: black;
     color: lightgrey;
 }
-
-
 
 .discovery-topic-nav {
     display: flex;
@@ -703,5 +698,3 @@ cart-main-container
     font-size: 20px;
     font-weight: bold;
 }
-
-
