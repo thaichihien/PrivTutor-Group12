@@ -46,3 +46,8 @@
     font-size: 20px;
     padding: 10px;
 }
+
+.vertical-line {
+    border-left: 6px solid black;
+   height: 500px;
+}
