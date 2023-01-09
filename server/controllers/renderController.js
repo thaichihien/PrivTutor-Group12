@@ -45,12 +45,21 @@ const renderDetailCourse = async(req,res) => {
 
 const renderDiscovery = async (req,res)=>{
     try {
+        const id = req.user
+
+        let user = {
+            fullname : ""
+        }
+        if(id){
+            const data  = await accountController.getAnAccount(id)
+            user = data
+        }
         const course = await dataController.getAllCourse()
         
         const featuredcourse = await dataController.getDetailCourse()
 
 
-        res.render('StudentDiscovery',{course,featuredcourse})
+        res.render('StudentDiscovery',{course,featuredcourse,user})
     } catch (error) {
         console.log(error.message)
         res.status(500).json(error.message)
@@ -63,9 +72,17 @@ const renderMyCourse = async (req,res) => {
     try {
         const id = req.user
 
+        let user = {
+            fullname : ""
+        }
+        if(id){
+            const data  = await accountController.getAnAccount(id)
+            user = data
+        }
+
         const mycourse = await dataController.getAllMyCourse(id)
 
-        res.render('My_Course',{mycourse})
+        res.render('My_Course',{mycourse,user})
     } catch (error) {
         console.log(error.message)
         res.status(500).json(error.message + " at renderMyCourse")
