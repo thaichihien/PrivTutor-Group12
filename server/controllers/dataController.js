@@ -98,8 +98,6 @@ const getFeaturedCourse = async() => {
             GROUP BY c.course_id, t.teacher_id`
         )
 
-        console.log(featuredcourse)
-
         // featuredcourse = {
         //     title,
         //     description,
