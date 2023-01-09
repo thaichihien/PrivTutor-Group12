@@ -118,6 +118,28 @@ const getFeaturedCourse = async() => {
     }
 }
 
+const getAllMyCourse = async(id) =>{
+    try {
+        // Tìm tất cả khóa học đã mua của một tài khoản với id
+        const course = await pool.query()
+
+        // course = {
+        //     image,
+        //     title,
+        //     author,
+        //     progress // tiến độ là số nguyên từ 0 -> 100
+        // }
+
+        
+
+
+        return course.rows
+
+    } catch (error) {
+        console.log(error.message + " at getAllMyCourse")
+    }
+}
+
 
 
 module.exports = {
@@ -125,5 +147,6 @@ module.exports = {
     getDetailCourse,
     getFeaturedCourse,
     getAllReview,
-    getAllLessons
+    getAllLessons,
+    getAllMyCourse
 }
