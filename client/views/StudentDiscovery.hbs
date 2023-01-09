@@ -22,61 +22,7 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">
-                    <img src=" /img/logo.png" alt="Logo">
-                    <span class="navbar-tittle">PrivTutor</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="search-bar">
-                        <form class="d-flex" role="search">
-                            <div class="search-bar">
-                                <input class="form-control me-2" type="search" placeholder="Search students, teachers, courses, etc..." aria-label="Search">
-                                <img src=" /img/searchicon.svg" id="input_img">
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="nav-item-container">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><i class="fa-regular fa-bell"></i></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <span class="avatar-container">
-                                        <img src=" /img/logo.png" alt="" class="avatar">
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Hoàng Minh</a>
-                            </li>
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li> -->
-                        </ul>
-                    </div>
-
-
-                </div>
-            </div>
-        </nav>
-    </header>
+    {{>header name=user.fullname}}
 
     <main>
         <div class="container-fluid">
@@ -404,6 +350,8 @@
             },
         });
     </script>
+
+     <script src="/js/authorization.js"></script>
 </body>
 
 </html>
