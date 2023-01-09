@@ -10,6 +10,7 @@ const getInfor = () => {
         loginBtn.style.display = 'none'
         registerBtn.style.display = 'none'
         logoutBtn.innerHTML = 'Logout'
+
     }
 }
 

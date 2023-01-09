@@ -29,6 +29,7 @@ app.set('views',path.join(__dirname,'../client/views'))
 // - Static
 app.use(express.static(path.join(__dirname,'../client/public')))
 
+app.use('/payment',require('./routers/buyRoute'))
 app.use('/auth',require('./routers/jwtAuth'))
 app.use('/',require('./routers/viewRouter'))
 

@@ -34,10 +34,6 @@ const getAnAccount = async (ID) => {
         const value = [ID];
         const account  = await pool.query(sql, value)
 
-
-
-
-
         return account.rows[0]
     } catch (error) {
         console.log(error.message + " at getAnAccount")
@@ -53,8 +49,6 @@ const getAnAccountByEmail = async (email) => {
         FROM Student WHERE email = $1`;
         const value = [email.toString()];
         const account = await pool.query(sql,value)
-
-
 
 
         return account
