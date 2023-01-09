@@ -483,7 +483,7 @@ hr {
 }
 
 .cart-main-container .cart_menu_body .cart_detail .item_in_cart {
-    /* max-width: 686px; */
+    max-width: 686px;
 }
 
 .cart-main-container .cart_menu_body .cart_detail .item_in_cart .item_detail {
