@@ -74,9 +74,42 @@ const getBalance = async (ID) => {
 
 }
 
+const setNewCourse = async (course_id, student_id) => {
+    try {
+       
+        const sql = `INSERT INTO Course_Student (student_id, course_id, rating, comment, progress) VALUES
+        ('$1', '$2', null, null, 0)`
+        const value = [student_id, course_id]
+        const newReg = await pool.query(sql, value)
+
+        return newReg.rows[0]
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const setNewBalance = async (student_id, newbalance) => {
+    try {
+       
+        const sql = `UPDATE Student
+        SET balance =  $1
+        WHERE student_id = $2`
+        const value = [newbalance, student_id]
+        const newRes = await pool.query(sql, value)
+
+        return newRes.rows[0]
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 module.exports = {
     getAnAccount,
     getAnAccountByEmail,
     createNewAccount,
-    getBalance
+    getBalance,
+    setNewCourse,
+    setNewBalance
 }
