@@ -58,10 +58,25 @@ const getAnAccountByEmail = async (email) => {
     }
 }
 
+const getBalance = async (ID) => {
+    try {
+        //Tìm tài khoản dựa vào ID
+        // Lưu ý data cần cột tên là fullname
+        const sql = `SElECT balance FROM Student WHERE student_id = $1`;
+        const value = [ID];
+        const balance  = await pool.query(sql, value)
 
+        return balance.rows[0]
+    } catch (error) {
+        console.log(error.message)
+    }
+
+
+}
 
 module.exports = {
     getAnAccount,
     getAnAccountByEmail,
-    createNewAccount
+    createNewAccount,
+    getBalance
 }

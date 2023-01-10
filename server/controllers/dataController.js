@@ -84,10 +84,6 @@ const getAllLessons = async (id) => {
     } catch (error) {
         console.log(error.message)
     }
-
-
-
-
 }
 
 const getFeaturedCourse = async() => {
@@ -145,7 +141,19 @@ const getAllMyCourse = async(id) =>{
     }
 }
 
+const getCoursePrice = async(courseid) =>{
+    try {
+        // Tìm tất cả khóa học đã mua của một tài khoản với id
+        const sql = `SELECT price Course WHERE course_id = $1`
+        const value = [courseid]
+        const price = await pool.query(sql,value)
 
+        return price.rows
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
 module.exports = {
     getAllCourse,
@@ -153,5 +161,6 @@ module.exports = {
     getFeaturedCourse,
     getAllReview,
     getAllLessons,
-    getAllMyCourse
+    getAllMyCourse,
+    getCoursePrice
 }
