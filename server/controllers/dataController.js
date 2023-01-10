@@ -1,13 +1,22 @@
 const pool = require('../database/configDB')
 
-const getAllCourse = async() => {
+const getAllCourse = async(keyword) => {
     try {
-        const course = await pool.query(
-        `SELECT c.course_id, c.logoCourseURL AS courseimage, c.course_name AS coursetitle, t.full_name AS author, c.rating, c.price 
-        FROM Teacher t JOIN Course c ON c.teacher_id = t.teacher_id`
-        )
-   
 
+
+        let QUERY =  `SELECT c.course_id, c.logoCourseURL AS courseimage, c.course_name AS coursetitle, t.full_name AS author, c.rating, c.price 
+        FROM Teacher t JOIN Course c ON c.teacher_id = t.teacher_id` 
+
+        // TODO thực hiện search theo tên giáo viên hoặc tên khóa học
+        // - dữ liệu y hệt câu truy vấn trên nhưng lần này lọc lại
+        // - chỉ lấy khóa học hoặc giáo viên có tên có keyword
+        // Gợi ý câu truy vấn:
+        // "SELECT <CỘT LẤY> FROM KHÓA HỌC WHERE TÊN KHÓA HỌC LIKE '%keyword%' OR TÊN GIÁO VIÊN LIKE '%keyword%'"
+        if(keyword){
+            QUERY = ''
+        }
+
+        const course = await pool.query(QUERY)
 
         return course.rows
 

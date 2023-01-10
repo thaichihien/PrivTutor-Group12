@@ -73,6 +73,7 @@ const renderDetailCourse = async(req,res) => {
 const renderDiscovery = async (req,res)=>{
     try {
         const id = req.user
+        const {search_key} = req.query
 
         let user = {
             fullname : "",
@@ -82,7 +83,10 @@ const renderDiscovery = async (req,res)=>{
             const data  = await accountController.getAnAccount(id)
             user = data
         }
-        const course = await dataController.getAllCourse()
+
+        
+
+        const course = await dataController.getAllCourse(search_key)
         
         const featuredcourse = await dataController.getFeaturedCourse()
 
