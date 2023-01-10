@@ -144,7 +144,7 @@ const getAllMyCourse = async(id) =>{
 const getCoursePrice = async(courseid) =>{
     try {
         // Tìm tất cả khóa học đã mua của một tài khoản với id
-        const sql = `SELECT price Course WHERE course_id = $1`
+        const sql = `SELECT price Course WHERE course_id = '$1'`
         const value = [courseid]
         const price = await pool.query(sql,value)
 

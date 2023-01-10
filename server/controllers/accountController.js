@@ -62,7 +62,7 @@ const getBalance = async (ID) => {
     try {
         //Tìm tài khoản dựa vào ID
         // Lưu ý data cần cột tên là fullname
-        const sql = `SElECT balance FROM Student WHERE student_id = $1`;
+        const sql = `SElECT balance FROM Student WHERE student_id = '$1'`;
         const value = [ID];
         const balance  = await pool.query(sql, value)
 
