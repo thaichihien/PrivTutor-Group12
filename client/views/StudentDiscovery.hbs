@@ -82,7 +82,7 @@
                                    {{#each course}}
                                         <div class="swiper-slide">
                                         <div class=" card-container">
-                                            <a href="/course/{{course_id}}" class="image">
+                                            <a href="/course?id={{course_id}}" class="image">
                                                 <img src="{{courseimage}}" alt="">
                                             </a>
 
@@ -164,9 +164,9 @@
                                     {{#each featuredcourse}}
                                        <div class="swiper-slide" id="featured-slide">
                                         <div class="featured-course-card">
-                                            <div class="featured-course-image">
+                                            <a href="/course?id={{course_id}}" class="featured-course-image">
                                                 <img src=" /img/anime-blender-course.png" alt="">
-                                            </div>
+                                            </a>
                                             <div class="featured-course-description">
                                                 <div>
                                                     <span class="name">{{title}}</span>
