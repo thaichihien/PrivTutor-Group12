@@ -12,7 +12,7 @@ const createNewAccount = async (fullname,email,password) => {
         const id = 'ST'+ newid.toString()
         console.log(id)
         const sql = `INSERT INTO Student (student_id, acc_password, full_name, date_of_birth, email, balance) VALUES
-        ($1, $2, $3,'2023-01-01', $4, 0) 
+        ($1, $2, $3,'2023-01-01', $4, 900000) 
         RETURNING student_id, acc_password AS password, full_name AS fullname, date_of_birth, balance`
         const value = [id, password.toString(), fullname.toString(), email.toString()]
         const newAccount = await pool.query(sql, value)
@@ -58,10 +58,58 @@ const getAnAccountByEmail = async (email) => {
     }
 }
 
+const getBalance = async (ID) => {
+    try {
+        //Tìm tài khoản dựa vào ID
+        // Lưu ý data cần cột tên là fullname
+        const sql = `SElECT balance FROM Student WHERE student_id = '$1'`;
+        const value = [ID];
+        const balance  = await pool.query(sql, value)
 
+        return balance.rows[0]
+    } catch (error) {
+        console.log(error.message)
+    }
+
+
+}
+
+const setNewCourse = async (course_id, student_id) => {
+    try {
+       
+        const sql = `INSERT INTO Course_Student (student_id, course_id, rating, comment, progress) VALUES
+        ('$1', '$2', null, null, 0)`
+        const value = [student_id, course_id]
+        const newReg = await pool.query(sql, value)
+
+        return newReg.rows[0]
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+const setNewBalance = async (student_id, newbalance) => {
+    try {
+       
+        const sql = `UPDATE Student
+        SET balance =  $1
+        WHERE student_id = $2`
+        const value = [newbalance, student_id]
+        const newRes = await pool.query(sql, value)
+
+        return newRes.rows[0]
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
 
 module.exports = {
     getAnAccount,
     getAnAccountByEmail,
-    createNewAccount
+    createNewAccount,
+    getBalance,
+    setNewCourse,
+    setNewBalance
 }

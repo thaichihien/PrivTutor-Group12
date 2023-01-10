@@ -9,16 +9,25 @@ const buyCourse =async (req,res)=>{
         let buySuccess = false
        // TODO 1 lấy thông tin tiền của khóa học và tài khoản
        // (có thể tự thêm hàm lấy dữ liệu tại dataController.js và accountController.js)
+       const price = dataController.getCoursePrice(courseID)
+       const userbalance = accountController.getBalance(id)
+       let rest = 0
 
        // TODO 2 : thực hiện mua khóa học : so sánh, trừ tiền,...
        // nếu thành công set giá trị buySuccess = true
        // ngược lại buySuccess = false
        // Sử dụng hai biến dataControler và accountController ở trên để lấy dữ liệu
-
+       if(userbalance >= price){
+        rest = userbalance - price
+        buySuccess = true
+        console.log(rest)
+       }
 
        // TODO 3 thành công thì thêm id khóa học vào bảng của tài khoản-khóa học
-        
-
+        if(buySuccess){
+            accountController.setNewCourse(courseID,id)
+            accountController.setNewBalance(id,rest)
+        }
 
        // ! Gợi ý: tham khảo renderController.js, nhớ thêm await ở các hàm lấy dữ liệu
        // Liên tục xem terminal, console.log các biến
