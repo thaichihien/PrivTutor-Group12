@@ -33,8 +33,9 @@ CREATE TABLE Teacher
 );
 CREATE TABLE Course
 (
-    course_id VARCHAR(4) PRIMARY KEY,
-    course_name VARCHAR(40),
+    course_id VARCHAR PRIMARY KEY,
+
+    course_name VARCHAR,
     price INT,
     rating NUMERIC(2,1),
     duration INT,
@@ -42,19 +43,19 @@ CREATE TABLE Course
     logoCourseURL TEXT,
 	description TEXT,
     -- foreign key --
-    teacher_id VARCHAR(4) REFERENCES Teacher(teacher_id)
+    teacher_id VARCHAR REFERENCES Teacher(teacher_id)
 );
 CREATE TABLE Lesson
 (
     lesson_id SERIAL PRIMARY KEY,
-    lesson_name VARCHAR(40),
+    lesson_name VARCHAR,
     duration INT,
     link_lesson TEXT,
-    course_id VARCHAR(4) REFERENCES Course(course_id)
+    course_id VARCHAR REFERENCES Course(course_id)
 );
 CREATE TABLE Course_Student
 (
-    course_id VARCHAR(4) REFERENCES Course(course_id),
+    course_id VARCHAR REFERENCES Course(course_id),
     student_id VARCHAR REFERENCES Student(student_id),
 	rating NUMERIC(2,1),
     comment TEXT,
@@ -134,14 +135,14 @@ VALUES ('Introduction', 7, 'https://www.youtube.com/watch?v=I_rY3JzZlJg&list=PLa
 ('Definition of Derivative', 6, 'https://youtu.be/qL2vr0Gi6e8','CAL1');
 
 INSERT INTO Course_Student (student_id, course_id, rating, comment, progress)
-VALUES('ST1','LOL1',5.0,'5 star about the quality of the course'), 
-('ST1','LOL2',4.9,'clear explaination, thanks a lot Mr.Ren'),
-('ST2','PG22',4.0,'a little bit unclear about function lesson, too few exercises'), 
-('ST2','DCM1',5.0,'10 marks for all sides'), 
-('ST2','LOL2', null,null),
-('ST3','OP22',4.8,'Great course ever, thank you so much'), 
-('ST3','DCM1', 4.5, 'a little bit confusion in some lesson'), 
-('ST3', 'CAL1', 4.2, null);
+VALUES('ST1','LOL1',5.0,'5 star about the quality of the course',100), 
+('ST1','LOL2',4.9,'clear explaination, thanks a lot Mr.Ren',100),
+('ST2','PG22',4.0,'a little bit unclear about function lesson, too few exercises',98), 
+('ST2','DCM1',5.0,'10 marks for all sides',100), 
+('ST2','LOL2', null,null,30),
+('ST3','OP22',4.8,'Great course ever, thank you so much',95), 
+('ST3','DCM1', 4.5, 'a little bit confusion in some lesson',98), 
+('ST3', 'CAL1', 4.2, null,95);
 
 SELECT * FROM Student;
 SELECT * FROM Course;
