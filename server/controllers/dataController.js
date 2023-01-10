@@ -179,8 +179,9 @@ const checkCoursePurchased = async (studentID,courseID) => {
     try {
         // Hàm kiểm tra xe học sinh mua khóa học này chưa
         // 
-        const check = await pool.query()
-        
+        const sql = `SELECT * FROM Course_Student WHERE student_id = $1 AND course_id = $2`
+        const value = [studentID, courseID]
+        const check = await pool.query(sql, value)      
 
 
 
