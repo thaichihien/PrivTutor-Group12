@@ -62,13 +62,15 @@ const getBalance = async (ID) => {
     try {
         //Tìm tài khoản dựa vào ID
         // Lưu ý data cần cột tên là fullname
-        const sql = `SElECT balance FROM Student WHERE student_id = '$1'`;
+        const sql = `SElECT balance FROM Student WHERE student_id = $1`;
         const value = [ID];
-        const balance  = await pool.query(sql, value)
+        const data  = await pool.query(sql, value)
+        const balance = data.rows[0].balance
 
-        return balance.rows[0]
+
+        return balance
     } catch (error) {
-        console.log(error.message)
+        console.log(error.message + " at getBalance")
     }
 
 
@@ -78,14 +80,14 @@ const setNewCourse = async (course_id, student_id) => {
     try {
        
         const sql = `INSERT INTO Course_Student (student_id, course_id, rating, comment, progress) VALUES
-        ('$1', '$2', null, null, 0)`
+        ($1, $2, null, null, 0)`
         const value = [student_id, course_id]
         const newReg = await pool.query(sql, value)
 
         return newReg.rows[0]
 
     } catch (error) {
-        console.log(error.message)
+        console.log(error.message + " at setNewCourse")
     }
 }
 
@@ -101,7 +103,7 @@ const setNewBalance = async (student_id, newbalance) => {
         return newRes.rows[0]
 
     } catch (error) {
-        console.log(error.message)
+        console.log(error.message + " at setNewBalance")
     }
 }
 

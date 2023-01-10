@@ -11,7 +11,8 @@ router.post("/register", async (req, res) => {
       const user = await accountDataController.getAnAccountByEmail(email)
   
       if (user.rowCount != 0) {
-        return res.status(401).json("User is already existed!");
+        return res.render('Register',{error : "User is already existed!"})
+       
       }
   
       // Bcrypt the password
@@ -29,7 +30,7 @@ router.post("/register", async (req, res) => {
   
     } catch (error) {
       console.error(error.message);
-      res.status(500).json("Server error");
+      return res.render('Register',{error : "Server error"})
   
     }
   });
@@ -43,7 +44,7 @@ router.post("/register", async (req, res) => {
   
       if (user.rows.length === 0) {
 
-        return res.status(401).json("User is not exist");
+        return res.render('Login',{error : "User is not exist"})
       }
   
       const validPassword = await bcrypt.compare(
@@ -52,7 +53,7 @@ router.post("/register", async (req, res) => {
       );
   
       if (!validPassword) {
-        return res.status(401).json("The password is wrong");
+        return res.render('Login',{error : "The password is wrong"})
       }else{
         const token = jwtGenerator(user.rows[0].student_id);
         req.session.token = token
@@ -61,7 +62,7 @@ router.post("/register", async (req, res) => {
    
     } catch (err) {
         console.error(err.message);
-        res.status(500).json("Server error");
+        return res.render('Login',{error : "Server error"})
     }
   });
   

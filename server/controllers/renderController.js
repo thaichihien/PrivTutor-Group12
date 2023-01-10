@@ -33,6 +33,8 @@ const renderDetailCourse = async(req,res) => {
 
         const id = req.user
 
+        let purchased = false
+
         let user = {
             fullname : "",
             balance :''
@@ -40,14 +42,27 @@ const renderDetailCourse = async(req,res) => {
         if(id){
             const data  = await accountController.getAnAccount(id)
             user = data
+
+            purchased = await dataController.checkCoursePurchased(id,courseID)
+
         }
 
         const course = await dataController.getDetailCourse(courseID)
         
-        const lesson = await dataController.getAllLessons(courseID)
+        let lesson = null
+        if(purchased){
+            lesson = await dataController.getAllLessons(courseID)
+        }else{
+            lesson = await dataController.getAllLessonsBlock(courseID)
+        }
+        
 
-
-        res.render('Student_item_detail',{course,lesson,user})
+        if(purchased){
+            res.render('Student_item_detail_purchased',{course,lesson,user})
+        }else{
+            res.render('Student_item_detail',{course,lesson,user})
+        }
+       
 
     } catch (error) {
         console.log(error.message)

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Discovery</title>0
+    <title>Discovery</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -68,12 +68,12 @@
                         <div class="course_lists_wrapper">
                             {{#each mycourse}}
                             <div class="course_item_container card">
-                                <div class="image">
+                                <a href="/course?id={{course_id}}" class="image">
                                     <img src="{{image}}" alt="">
-                                </div>
+                                </a>
 
                                 <div class="content">
-                                    <div class="course-name">{{title}}</div>
+                                    <a href="/course?id={{course_id}}" class="course-name">{{title}}</a>
                                     <div class="course-author">{{author}}</div>
                                     <!-- <hr class="progress-line-blank"> -->
                                     <div class="progress-real"></div>

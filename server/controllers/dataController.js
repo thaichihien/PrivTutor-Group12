@@ -57,7 +57,7 @@ const getDetailCourse = async (id) => {
 
 }
 
-const getAllLessons = async (id) => {
+const getAllLessonsBlock = async (id) => {
     try {
         const sql = 'SElECT lesson_name AS title, duration FROM Lesson  WHERE course_id = $1';
         const value = [id];
@@ -86,10 +86,28 @@ const getAllLessons = async (id) => {
     }
 }
 
+
+const getAllLessons = async (id) => {
+    try {
+
+        
+        const sql = 'SElECT link_lesson as link,lesson_name AS title, duration FROM Lesson  WHERE course_id = $1';
+        const value = [id];
+
+        const lessonData = await pool.query(sql, value)
+        const lesson = lessonData.rows
+
+        return lesson
+
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 const getFeaturedCourse = async() => {
     try {
         const featuredcourse = await pool.query(
-            `SELECT c.course_name AS title, c.description, t.full_name AS author, c.release_date, c.duration,
+            `SELECT c.course_id, c.course_name AS title, c.description, t.full_name AS author, c.release_date, c.duration,
             COUNT(*) AS numberlessons, c.rating
             FROM Course c JOIN Lesson l USING (course_id) JOIN Teacher t USING (teacher_id)
             GROUP BY c.course_id, t.teacher_id`
@@ -118,7 +136,7 @@ const getFeaturedCourse = async() => {
 const getAllMyCourse = async(id) =>{
     try {
         // Tìm tất cả khóa học đã mua của một tài khoản với id
-        const sql = `SELECT c.course_name AS title, c.logoCourseURL AS image, t.full_name AS author, cs.progress
+        const sql = `SELECT c.course_id, c.course_name AS title, c.logoCourseURL AS image, t.full_name AS author, cs.progress
         FROM Course_Student cs JOIN Course c USING (course_id) JOIN Teacher t USING (teacher_id)
         WHERE cs.student_id = $1`
         const value = [id]
@@ -144,15 +162,38 @@ const getAllMyCourse = async(id) =>{
 const getCoursePrice = async(courseid) =>{
     try {
         // Tìm tất cả khóa học đã mua của một tài khoản với id
-        const sql = `SELECT price Course WHERE course_id = '$1'`
+        const sql = `SELECT price FROM Course WHERE course_id = $1`
         const value = [courseid]
-        const price = await pool.query(sql,value)
+        const data = await pool.query(sql,value)
+       
+        const price = data.rows[0].price
 
-        return price.rows
+        return price
 
     } catch (error) {
-        console.log(error.message)
+        console.log(error.message + " at getCoursePrice")
     }
+}
+
+const checkCoursePurchased = async (studentID,courseID) => {
+    try {
+        // Hàm kiểm tra xe học sinh mua khóa học này chưa
+        // 
+        const check = await pool.query()
+        
+
+
+
+        if(check.rowCount != 0){
+            return true
+        }else return false
+
+    } catch (error) {
+        console.log(error.message + " at checkCoursePurchased")
+    }
+
+
+
 }
 
 module.exports = {
@@ -160,7 +201,9 @@ module.exports = {
     getDetailCourse,
     getFeaturedCourse,
     getAllReview,
+    getAllLessonsBlock,
     getAllLessons,
     getAllMyCourse,
-    getCoursePrice
+    getCoursePrice,
+    checkCoursePurchased
 }
