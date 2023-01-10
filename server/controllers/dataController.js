@@ -13,7 +13,9 @@ const getAllCourse = async(keyword) => {
         // Gợi ý câu truy vấn:
         // "SELECT <CỘT LẤY> FROM KHÓA HỌC WHERE TÊN KHÓA HỌC LIKE '%keyword%' OR TÊN GIÁO VIÊN LIKE '%keyword%'"
         if(keyword){
-            QUERY = ''
+            QUERY = `SELECT c.course_id, c.logoCourseURL AS courseimage, c.course_name AS coursetitle, t.full_name AS author, c.rating, c.price 
+            FROM Teacher t JOIN Course c USING (teacher_id)
+            WHERE c.course_name LIKE '%${keyword}%' OR t.full_name LIKE '%${keyword}%'`
         }
 
         const course = await pool.query(QUERY)
