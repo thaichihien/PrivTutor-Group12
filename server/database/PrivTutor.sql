@@ -74,17 +74,17 @@ INSERT INTO Teacher (teacher_id, acc_password, full_name, date_of_birth, email, 
 ('TT3', 'Stella1208', 'Tran Mai Thanh Thuy', '1989-04-04','mtthuy89@gmail.com', 'PHD. in Math', '0932958648');
 
 INSERT INTO Course (course_id, course_name, price, rating, duration, release_date, logoCourseURL, description, teacher_id) VALUES 
-('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', 'https://drive.google.com/uc?export=view&id=1u6bbnnENbIc_MiZgqPKJNxyKqLJ8zAyk', 
+('PG22','Introduction to programming C++', '120000', '4.5', 48, '2022-12-20', '/img/Introduction to Programming C++.png', 
  'Learn to program with one of the most powerful programming languages that exists today with the modern C++','TT1'),
-('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', 'https://drive.google.com/uc?export=view&id=1Ln9yp1H5uFAttg3eex834mivGWJ0bP7G',
+('OP22','OOP programing', '120000', '4.5', 24, '2022-11-01', '/img/Object-Oriented-Programming.png',
  'Learn Java In This Course And Master The Art Of OOP Programming And Patterns','TT1'),
-('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', 'https://drive.google.com/uc?export=view&id=1H-DYlYFcl5J7GFNkygd8JBV-bKCRP3Us', 
+('LOL1','Introduction to League of Legend', '52000', '4.9', 20, '2022-05-14', '/img/Intro to LOL.jpg', 
  'Most basic course for League newbies with detailed explainations about game mechanics and champion power spikes','TT2'),
-('LOL2','Laning phase like pros', '50000', '4.9', 24, '2022-05-14', 'https://drive.google.com/uc?export=view&id=10EWQSzlIBuLoAW2U4m-pr-oMrRmGOjtR', 
+('LOL2','Laning phase like pros', '50000', '4.9', 24, '2022-05-14', '/img/Laning.png', 
  'Learn how to play League like a professional players and handle well with every matchup in all lanes in games','TT2'),
-('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', 'https://drive.google.com/uc?export=view&id=1HicXpK6S6cGcXTskgy4Grn_NUn8Z-6lw', 
+('DCM1','Discrete Mathematics', '254000', '4.8', 50, '2022-07-30', '/img/Discrete Math.jpg', 
 'Student can master the logic rules, set theory, permutation and combination rules in counting objects','TT3'),
-('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', 'https://drive.google.com/uc?export=view&id=1Dr8UT7rDvdW_4YTrkLupY9EFv5cT9-9G', 
+('CAL1','Calculus I', '300000', '4.4', 50, '2022-01-03', '/img/Calculus I.jpg',
 'Students learn how to calculate differentiation and integration, also dealing with problems where variables change with time.','TT3');
 
 INSERT INTO Lesson (lesson_name, duration, link_lesson, course_id)
@@ -151,30 +151,8 @@ SELECT * FROM Lesson;
 SELECT * FROM Course_Student;
 
 
--- Query for get All Courses function --
-SELECT c.course_id, c.logoCourseURL AS courseimage , c.course_name AS coursetitle, t.full_name AS author, c.rating, c.price 
-FROM Teacher t JOIN Course c ON c.teacher_id = t.teacher_id
-
--- Query for get All Reviews function --
-SELECT a.comment, s.full_name AS author, c.course_name AS coursetitle
-FROM Course_Student a JOIN Course c ON a.course_id = c.course_id JOIN Student s ON s.student_id = a.student_id
-WHERE a.comment IS NOT NULL
-
--- Query for detail course --
-SElECT c.course_name AS title, c.description, c.rating AS ratings,
-COUNT(a.student_id) AS  numberrating, COUNT(a.course_id) AS numberstudent,
-t.full_name AS author, c.logoCourseURL AS courseimg, c.price
-FROM Teacher t JOIN Course c USING (teacher_id) JOIN Course_Student a
-USING (course_id) WHERE c.course_id = $1 AND a.rating IS NOT NULL
-GROUP BY c.course_id, t.teacher_id
-
--- Counting --
-SElECT COUNT(student_id) AS numberstudent, course_id
-FROM Course_Student GROUP BY course_id
-
-
---DROP TABLE Student
---DROP TABLE Teacher
---DROP TABLE Course
---DROP TABLE Lesson
---DROP TABLE Course_Student
+DROP TABLE Course_Student
+DROP TABLE Lesson
+DROP TABLE Course
+DROP TABLE Student
+DROP TABLE Teacher

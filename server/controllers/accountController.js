@@ -12,7 +12,7 @@ const createNewAccount = async (fullname,email,password) => {
         const id = 'ST'+ newid.toString()
         console.log(id)
         const sql = `INSERT INTO Student (student_id, acc_password, full_name, date_of_birth, email, balance) VALUES
-        ($1, $2, $3,'2023-01-01', $4, 250000) 
+        ($1, $2, $3,'2023-01-01', $4, 300000) 
         RETURNING student_id, acc_password AS password, full_name AS fullname, date_of_birth, balance`
         const value = [id, password.toString(), fullname.toString(), email.toString()]
         const newAccount = await pool.query(sql, value)
