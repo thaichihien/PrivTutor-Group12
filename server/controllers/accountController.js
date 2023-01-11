@@ -47,7 +47,7 @@ const getAnAccountByEmail = async (email) => {
         // Tìm tài khoản dựa vào email
         const sql = `SElECT student_id, acc_password AS password, full_name AS fullname, date_of_birth, balance 
         FROM Student WHERE email = $1`;
-        const value = [email.toString()];
+        const value = [email];
         const account = await pool.query(sql,value)
 
 
