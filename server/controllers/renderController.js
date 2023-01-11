@@ -89,9 +89,12 @@ const renderDiscovery = async (req,res)=>{
         const course = await dataController.getAllCourse(search_key)
         
         const featuredcourse = await dataController.getFeaturedCourse()
+        let notfound = ""
+        if(course.length <= 0){
+            notfound = "There are no search results for " + search_key
+        }
 
-
-        res.render('StudentDiscovery',{course,featuredcourse,user})
+        res.render('StudentDiscovery',{course,featuredcourse,user,notfound})
     } catch (error) {
         console.log(error.message)
         res.status(500).json(error.message)
