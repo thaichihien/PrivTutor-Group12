@@ -47,7 +47,7 @@ hoặc
 - Làm xong một chức năng, một hàm rồi (***Không bị lỗi compile***) &rarr; **COMMIT** và **PUSH**
 - Chỉ nên làm trên **file mình được giao**, cần chỉnh file khác thì báo trước
 - Deadline luôn là tối ngày hôm đó phải có
-## Mục tiêu:
+## Chức năng:
 - [ ] Xem tất cả khóa học ở trang chủ
 - [ ] Xem trang chi tiết của một khóa học
 - [ ] Mua một khóa học
