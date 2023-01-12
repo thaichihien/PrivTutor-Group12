@@ -51,17 +51,5 @@ hoặc
 - [ ] Xem tất cả khóa học ở trang chủ
 - [ ] Xem trang chi tiết của một khóa học
 - [ ] Mua một khóa học
-## Công việc:
-<details>
-    <summary> <b>1. Viết câu truy vấn, sửa csdl cho trang chủ</b> </summary>
-    <ul>
-        <li>Người làm: Hùng</li>
-        <li>Mô tả:
-            <ul>
-                <li>Xem yêu cầu tại file</li>
-            </ul>
-        </li>
-        <li>File làm việc: /server/controllers/dataController.js</li>
-        <li>Deadline: 30/12/2022</li>
-    </ul>
-    </details>
+- [ ] Xem khóa học đã mua và học khóa học
+- [ ] Tìm kiếm khóa học theo tên + tên giáo viên
