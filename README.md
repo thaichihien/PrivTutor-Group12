@@ -2,8 +2,7 @@
 
 - [Biến môi trường](#cài-đặt-biến-môi-trường)
 - [Chạy Server](#chạy-server)
-- [Mục tiêu](#mục-tiêu)
-- [Công việc](#công-việc)
+- [Chức năng](#chức-năng)
 
 ## Thư viện tiện ích :
 - **nodemon** : dùng để khi sửa code thì server tự restart. Cách tải : `npm install -g nodemon`. Cách này cài một lần duy nhất lần sau khỏi cài (-g là lưu global). Khi muốn **tự mình restart server tay** thì dùng lệnh `rs`
